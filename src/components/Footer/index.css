@@ -1,8 +1,4 @@
 .footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   background-color: #FAFAFA;
 }
 
@@ -10,7 +6,7 @@
   width: 100%;
   max-width: 1280px;
 
-  padding: 79px 70px 0 70px;
+  padding-top: 80px;
 
   display: flex;
   flex-direction: column;
@@ -18,6 +14,8 @@
 }
 
 .footer__title {
+  margin: 0;
+
   font-size: 13px;
   font-weight: 400;
   text-align: center;
@@ -34,9 +32,10 @@
 .footer__content {
   width: 100%;
 
-  padding: 19px 30px 20px;
+  padding: 20px 0;
 
   display: flex;
+  align-items: center;
   justify-content: space-between;
 
   border-top: 1px solid #E8E8E8;
@@ -70,6 +69,10 @@
   .footer__links a {
     font-size: 13px;
     font-weight: 400;
+
+    text-decoration: none;
+
+    color: #000000;
   }
 
   @media screen and (max-width: 420px) {

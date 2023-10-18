@@ -5,21 +5,23 @@ import "./index.css";
 export default function Footer() {
   return (
     <footer className="footer">
-      <div className="footer__container">
-        <p className="footer__title">
-          Учебный проект Яндекс.Практикум х BeatFilm.
-        </p>
-        <div className="footer__content">
-          <p className="footer__copyright">
-            © 2020
+      <div className="container">
+        <div className="footer__container">
+          <p className="footer__title">
+            Учебный проект Яндекс.Практикум х BeatFilm.
           </p>
-          <div className="footer__links">
-            <a href="">
-              Яндекс.Практикум
-            </a>
-            <a href="">
-              Github
-            </a>
+          <div className="footer__content">
+            <p className="footer__copyright">
+              © 2023
+            </p>
+            <div className="footer__links">
+              <a href="#">
+                Яндекс.Практикум
+              </a>
+              <a href="#">
+                Github
+              </a>
+            </div>
           </div>
         </div>
       </div>

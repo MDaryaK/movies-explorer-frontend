@@ -1,26 +1,20 @@
-.technologies {
-  display: flex;
-
-  justify-content: center;
+.main-technologies {
   background-color: #F5F5F5;
 }
 
-.technologies__container {
-  width: 100%;
-  max-width: 1280px;
-
-  padding: 100px 70px;
+.main-technologies__container {
+  padding: 100px 0;
 
   display: flex;
   flex-direction: column;
   gap: 90px;
 
-  .technologies__info {
+  .main-technologies__info {
     display: flex;
     flex-direction: column;
     gap: 20px;
 
-    .technologies__info__title {
+    .main-technologies__info-title {
       font-size: 50px;
       font-weight: 400;
       line-height: 58px;
@@ -30,14 +24,14 @@
     }
 
     @media screen and (max-width: 420px) {
-      .technologies__info__title {
+      .main-technologies__info-title {
         font-size: 30px;
         line-height: normal;
         letter-spacing: -1.2px;
       }
     }
 
-    .technologies__info__subtitle {
+    .main-technologies__info-subtitle {
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;
@@ -47,7 +41,7 @@
     }
 
     @media screen and (max-width: 980px) {
-      .technologies__info__subtitle {
+      .main-technologies__info-subtitle {
         font-size: 12px;
         line-height: 18px;
         letter-spacing: -0.48px;
@@ -56,25 +50,25 @@
   }
 
   @media screen and (max-width: 980px) {
-    .technologies__info {
+    .main-technologies__info {
       gap: 22px;
     }
   }
 
   @media screen and (max-width: 420px) {
-    .technologies__info {
+    .main-technologies__info {
       gap: 24px;
     }
   }
 
-  .technologies__items {
+  .main-technologies__list {
     width: 100%;
 
     display: flex;
     justify-content: center;
     gap: 10px;
 
-    .block {
+    .main-technologies__list-item {
       width: 90px;
       height: 60px;
 
@@ -88,13 +82,13 @@
     }
 
     @media screen and (max-width: 980px) {
-      .block {
+      .main-technologies__list-item {
         width: 84px;
         height: 57px;
       }
     }
 
-    .block p {
+    .main-technologies__list-item p {
       font-size: 14px;
       font-weight: 400;
       letter-spacing: -0.56px;
@@ -103,7 +97,7 @@
     }
 
     @media screen and (max-width: 980px) {
-      .block p {
+      .main-technologies__list-item p {
         font-size: 12px;
         letter-spacing: -0.48px;
       }
@@ -111,7 +105,7 @@
   }
 
   @media screen and (max-width: 768px) {
-    .technologies__items {
+    .main-technologies__list {
       margin: 0 auto;
 
       flex-wrap: wrap;
@@ -119,7 +113,7 @@
   }
 
   @media screen and (max-width: 420px) {
-    .technologies__items {
+    .main-technologies__list {
       max-width: 180px;
 
       margin: 0 auto;
@@ -131,33 +125,33 @@
 }
 
 @media screen and (max-width: 980px) {
-  .technologies__container {
+  .main-technologies__container {
     padding: 90px 50px;
     gap: 80px;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .technologies__container {
+  .main-technologies__container {
     padding: 70px 18px;
     gap: 60px;
   }
 }
 
-.technologies__container > div {
+.main-technologies__container > div {
   display: flex;
   flex-direction: column;
   gap: 100px;
 }
 
 @media screen and (max-width: 980px) {
-  .technologies__container > div {
+  .main-technologies__container > div {
     gap: 83px;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .technologies__container > div {
+  .main-technologies__container > div {
     gap: 50px;
   }
 }
