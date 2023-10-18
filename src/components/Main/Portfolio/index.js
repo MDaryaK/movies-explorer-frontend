@@ -1,6 +1,6 @@
 import React from "react";
 
-import arrow from "../AboutMe/img/arrow.png";
+import arrow from "../../../images/icons/arrow.png";
 
 import "./index.css";
 

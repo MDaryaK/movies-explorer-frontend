@@ -1,13 +1,13 @@
-.about {
+.main-about {
   display: flex;
   justify-content: center;
 }
 
-.about__container {
+.main-about__container {
   width: 100%;
   max-width: 1280px;
 
-  padding: 110px 70px;
+  padding: 110px 0;
   display: flex;
   flex-direction: column;
 
@@ -15,47 +15,47 @@
 }
 
 @media screen and (max-width: 980px) {
-  .about__container {
+  .main-about__container {
     padding: 90px 50px;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .about__container {
+  .main-about__container {
     padding: 70px 18px;
     gap: 60px;
   }
 }
 
-.about__container__information {
+.main-about__information {
   display: flex;
   flex-direction: column;
   gap: 110px;
 
-  .stages {
+  .main-about__stages {
     display: flex;
     gap: 40px;
   }
 
   @media screen and (max-width: 980px) {
-    .stages {
+    .main-about__stages {
       gap: 30px;
     }
   }
 
   @media screen and (max-width: 420px) {
-    .stages {
+    .main-about__stages {
       flex-direction: column;
       gap: 56px;
     }
   }
 
-  .stages div {
+  .main-about__stages div {
     display: flex;
     flex-direction: column;
     gap: 26px;
 
-    .stages__title {
+    .main-about__stages-title {
       font-size: 20px;
 
       font-weight: 400;
@@ -63,13 +63,13 @@
     }
 
     @media screen and (max-width: 420px) {
-      .stages__title {
+      .main-about__stages-title {
         font-size: 18px;
         letter-spacing: -0.72px;
       }
     }
 
-    .stages__description {
+    .main-about__stages-description {
       font-size: 14px;
 
       font-weight: 400;
@@ -77,13 +77,13 @@
     }
 
     @media screen and (max-width: 980px) {
-      .stages__description {
+      .main-about__stages-description {
         font-size: 12px;
       }
     }
 
     @media screen and (max-width: 420px) {
-      .stages__description {
+      .main-about__stages-description {
         font-size: 11px;
         line-height: 16px;
       }
@@ -91,51 +91,51 @@
   }
 
   @media screen and (max-width: 980px) {
-    .stages div {
+    .main-about__stages div {
       gap: 22px;
     }
   }
 
   @media screen and (max-width: 420px) {
-    .stages div {
+    .main-about__stages div {
       gap: 16px;
     }
   }
 
-  .weeks {
+  .main-about__weeks {
     display: flex;
 
-    .week {
+    .main-about__weeks-item {
       display: flex;
       flex-direction: column;
       gap: 14px;
     }
 
     @media screen and (max-width: 420px) {
-      .week {
+      .main-about__weeks-item {
         gap: 10px;
       }
     }
 
-    .week div {
+    .main-about__weeks-item div {
       padding: 9px 14px;
       display: flex;
       justify-content: center;
     }
 
     @media screen and (max-width: 980px) {
-      .week div {
+      .main-about__weeks-item div {
         padding: 9px 10px;
       }
     }
 
     @media screen and (max-width: 420px) {
-      .week div {
+      .main-about__weeks-item div {
         padding: 11px 10px;
       }
     }
 
-    .week div p {
+    .main-about__weeks-item div p {
       font-size: 14px;
 
       font-weight: 400;
@@ -143,13 +143,13 @@
     }
 
     @media screen and (max-width: 420px) {
-      .week div p {
+      .main-about__weeks-item div p {
         font-size: 11px;
         font-weight: 400;
       }
     }
 
-    .week > p {
+    .main-about__weeks-item > p {
       font-size: 14px;
 
       font-weight: 500;
@@ -159,19 +159,19 @@
     }
 
     @media screen and (max-width: 980px) {
-      .week > p {
+      .main-about__weeks-item > p {
         font-weight: 400;
       }
     }
 
     @media screen and (max-width: 420px) {
-      .week > p {
+      .main-about__weeks-item > p {
         font-size: 11px;
         line-height: normal;
       }
     }
 
-    .weeks__first {
+    .main-about__weeks-item:nth-child(1) {
       width: 100%;
       max-width: 228px;
 
@@ -182,23 +182,23 @@
     }
 
     @media screen and (max-width: 980px) {
-      .weeks__first {
+      .main-about__weeks-item:nth-child(1) {
         max-width: 140px;
       }
     }
 
     @media screen and (max-width: 420px) {
-      .weeks__first {
+      .main-about__weeks-item:nth-child(1) {
         max-width: 100px;
       }
     }
 
-    .weeks__first div {
+    .main-about__weeks-item:nth-child(1) div {
       width: 100%;
       background: #2BE080;
     }
 
-    .weeks__second {
+    .main-about__weeks-item:nth-child(2) {
       width: 100%;
 
       display: flex;
@@ -206,7 +206,7 @@
       justify-content: center;
     }
 
-    .weeks__second div {
+    .main-about__weeks-item:nth-child(2) div {
       width: 100%;
       background: #F2F2F2;
     }
@@ -214,13 +214,13 @@
 }
 
 @media screen and (max-width: 980px) {
-  .about__container__information {
+  .main-about__information {
     gap: 93px;
   }
 }
 
 @media screen and (max-width: 980px) {
-  .about__container__information {
+  .main-about__information {
     gap: 60px;
   }
 }

@@ -1,28 +1,30 @@
 import React from "react";
 
-import world from "./img/world.png"
+import world from "../../../images/world.png"
 
 import "./index.css";
 
 export default function Promo() {
   return (
-    <section className="hero">
-      <div className="hero__container">
-        <div className="hero__container__info">
-          <div className="info">
-            <p className="info__title">
-              Учебный проект студента факультета Веб-разработки.
-            </p>
-            <p className="info__description">
-              Листайте ниже, чтобы узнать больше про этот проект и его создателя.
-            </p>
+    <section className="main-promo">
+      <div className="container">
+        <div className="main-promo__container">
+          <div className="main-promo__info">
+            <div className="main-promo__info-wrapper">
+              <p className="main-promo__info-title">
+                Учебный проект студента факультета Веб-разработки.
+              </p>
+              <p className="main-promo__info-description">
+                Листайте ниже, чтобы узнать больше про этот проект и его создателя.
+              </p>
+            </div>
+            <button>
+              Узнать больше
+            </button>
           </div>
-          <button>
-            Узнать больше
-          </button>
-        </div>
-        <div className="hero__container__image">
-          <img src={world} alt=""/>
+          <div className="main-promo__image">
+            <img src={world} alt=""/>
+          </div>
         </div>
       </div>
     </section>

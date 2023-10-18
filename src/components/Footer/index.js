@@ -15,10 +15,18 @@ export default function Footer() {
               © 2023
             </p>
             <div className="footer__links">
-              <a href="#">
+              <a
+                href="https://practicum.yandex.ru/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Яндекс.Практикум
               </a>
-              <a href="#">
+              <a
+                href="https://github.com/MDaryaK"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Github
               </a>
             </div>

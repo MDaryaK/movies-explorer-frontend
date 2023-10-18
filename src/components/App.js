@@ -10,6 +10,7 @@ import FilmsLayout from "./FilmsLayout";
 
 import "../index.css";
 import MainLayout from "../layouts/Main";
+import ProfileLayout from "../layouts/Profile";
 
 const films = FilmsData;
 
@@ -43,9 +44,9 @@ function App() {
       <Route
         path="/profile"
         element={(
-          <MainLayout>
+          <ProfileLayout>
             <Account />
-          </MainLayout>
+          </ProfileLayout>
         )}
       />
       <Route path="/signin" element={ <Auth /> } />

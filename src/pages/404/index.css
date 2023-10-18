@@ -1,4 +1,4 @@
-.notFountPage {
+.not-found {
   max-width: 1280px;
 
   height: 100vh;
@@ -10,64 +10,68 @@
   flex-direction: column;
 }
 
-.notFountPage__container {
+.not-found__container {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.notFountPage__head {
+.not-found__head {
   display: flex;
   align-items: center;
   flex-direction: column;
   gap: 5px;
 }
 
-.notFountPage__head__title {
+.not-found__head__title {
+  margin: 0;
   font-size: 140px;
   font-weight: 400;
 }
 
 @media screen and (max-width: 420px) {
-  .notFountPage__head__title {
+  .not-found__head__title {
     font-size: 80px;
   }
 }
 
-.notFountPage__head__subtitle {
+.not-found__head__subtitle {
+  margin: 0;
   font-size: 16px;
   font-weight: 400;
 }
 
 @media screen and (max-width: 420px) {
-  .notFountPage__head__subtitle {
+  .not-found__head__subtitle {
     font-size: 12px;
   }
 }
 
-.notFountPage__back {
+.not-found__back {
   width: 100%;
   margin: 0 auto;
 
   position: absolute;
   bottom: 60px;
   left: 0;
-  font-size: 14px;
 
+  font-size: 14px;
   font-weight: 400;
+
   text-align: center;
+  text-decoration: none;
 
   color: #FF6838;
 }
 
 @media screen and (max-width: 980px) {
-  .notFountPage__back {
+  .not-found__back {
     bottom: 222px;
   }
 }
 
 @media screen and (max-width: 420px) {
-  .notFountPage__back {
+  .not-found__back {
     bottom: 30px;
     font-size: 12px;
   }

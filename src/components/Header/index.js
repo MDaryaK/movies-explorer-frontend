@@ -1,9 +1,9 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import logo from "../../assets/img/logo.svg"
-import user from "./img/user.svg"
-import burger from "./img/burger.svg"
+import logo from "../../images/logo.svg"
+import user from "../../images/icons/user.svg"
+import burger from "../../images/icons/burger.svg"
 
 import "./index.css";
 
@@ -18,15 +18,15 @@ export default function Header() {
   const links = [
     {
       title: "Фильмы",
-      href: "/films"
+      href: "/movies"
     },
     {
       title: "Сохранненые фильмы",
-      href: "/saved-films"
+      href: "/saved-movies"
     },
     {
       title: "Аккаунт",
-      href: "/account"
+      href: "/profile"
     }
   ]
 
@@ -41,19 +41,19 @@ export default function Header() {
             onClick={() => navigate("/")}
           />
           <nav className={"header__nav"}>
-            {links.map(((item, index) =>
-                <p
-                  className={`
-                nav__item
-                ${path === item.href ? "nav__item-active" : ""}
-                ${isMainPath ? "header__nav-main" : ""}
-              `}
-                  onClick={() => navigate(item.href)}
-                  key={index}
-                >
-                  {item.title}
-                </p>
-            ))}
+            {links.map(((item, index) => (
+              <p
+                className={`
+                    nav__item
+                    ${path === item.href ? "nav__item-active" : ""}
+                    ${isMainPath ? "header__nav-main" : ""}
+                  `}
+                onClick={() => navigate(item.href)}
+                key={index}
+              >
+                {item.title}
+              </p>
+            )))}
           </nav>
           <button>
             <img src={user} alt="user avatar" />

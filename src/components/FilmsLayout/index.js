@@ -18,7 +18,6 @@ export default function FilmsLayout({ filmsList }) {
 
   return (
     <>
-      <Header />
       <div className="films">
         <div className="films__search">
           <div className="films__search__container">
@@ -53,7 +52,6 @@ export default function FilmsLayout({ filmsList }) {
         </div>
         <Films filmsList={filmsList} />
       </div>
-      <Footer />
     </>
   );
 }

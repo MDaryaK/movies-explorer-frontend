@@ -2,8 +2,7 @@ import React from "react";
 
 import SectionTitle from "../../SectionTitle";
 
-import student from "./img/student.png"
-import arrow from "./img/arrow.png"
+import student from "../../../images/student.png";
 
 import "./index.css";
 
@@ -27,7 +26,12 @@ export default function AboutMe() {
                   и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом. Недавно начал кодить. С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке, начал заниматься фриланс-заказами и ушёл с постоянной работы.
                 </p>
               </div>
-              <a className="main-about-me__info-link" href="#">
+              <a
+                className="main-about-me__info-link"
+                target="_blank"
+                rel="noreferrer"
+                href="https://github.com/MDaryaK"
+              >
                 Github
               </a>
             </div>

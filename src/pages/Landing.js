@@ -4,12 +4,12 @@ import Portfolio from "../components/Main/Portfolio";
 import AboutMe from "../components/Main/AboutMe";
 import Techs from "../components/Main/Techs";
 import AboutProject from "../components/Main/AboutProject";
+import Promo from "../components/Main/Promo";
 
 export default function Landing() {
   return (
     <div>
-      {/*<Promo />*/}
-      {/*<About />*/}
+      <Promo />
       <AboutProject />
       <Techs />
       <AboutMe />

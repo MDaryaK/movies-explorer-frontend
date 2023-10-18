@@ -3,18 +3,18 @@ import {Link} from "react-router-dom";
 
 export default function NotFoundPage() {
   return (
-    <div className="notFountPage">
-      <div className="notFountPage__container">
-        <div className="notFountPage__head">
-          <p className="notFountPage__head__title">
+    <div className="not-found">
+      <div className="not-found__container">
+        <div className="not-found__head">
+          <p className="not-found__head__title">
             404
           </p>
-          <p className="notFountPage__head__subtitle">
+          <p className="not-found__head__subtitle">
             Страница не найдена
           </p>
         </div>
         <Link
-          className="notFountPage__back"
+          className="not-found__back"
           to="/"
         >
           Назад
