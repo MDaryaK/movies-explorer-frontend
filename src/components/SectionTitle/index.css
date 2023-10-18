@@ -1,0 +1,27 @@
+.sectionTitle {
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid black;
+}
+
+@media screen and (max-width: 420px) {
+  .sectionTitle {
+    padding-bottom: 28px;
+
+  }
+}
+
+.sectionTitle p {
+  font-size: 22px;
+
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.88px;
+}
+
+@media screen and (max-width: 420px) {
+  .sectionTitle p {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+}

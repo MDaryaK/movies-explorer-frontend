@@ -1,0 +1,158 @@
+.hero {
+  display: flex;
+  justify-content: center;
+
+  background-color: #465DFF;
+}
+
+.hero__container {
+  width: 100%;
+  max-width: 1280px;
+
+  padding: 75px 70px;
+
+  display: flex;
+}
+
+@media screen and (max-width: 980px) {
+  .hero__container {
+    padding: 140px 50px 76px 50px;
+
+    flex-direction: column-reverse;
+    gap: 48px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .hero__container {
+    padding: 70px 10px 30px 10px;
+
+    flex-direction: column-reverse;
+    gap: 44px;
+  }
+}
+
+.hero__container__info {
+  max-width: 630px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 146px;
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  @media screen and (max-width: 980px) {
+    .info {
+      gap: 22px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .info {
+      gap: 24px;
+    }
+  }
+
+  .info__title {
+    font-size: 50px;
+
+    font-weight: 400;
+    font-style: normal;
+    line-height: 58px;
+    color: #FFF;
+  }
+
+  @media screen and (max-width: 980px) {
+    .info__title {
+      font-size: 40px;
+      line-height: 50px;
+
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 420px) {
+    .info__title {
+      font-size: 30px;
+      line-height: 38px;
+      letter-spacing: -1.2px;
+    }
+  }
+
+  .info__description {
+    font-size: 13px;
+    font-weight: 400;
+
+    opacity: .5;
+
+    color: #FFF;
+  }
+
+  @media screen and (max-width: 980px) {
+    .info__description {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .hero__container__info {
+    margin: 0 auto;
+    gap: 92px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .hero__container__info {
+    gap: 80px;
+  }
+}
+
+.hero__container__info button {
+  width: fit-content;
+
+  padding: 10px 20px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+
+  cursor: pointer;
+
+  border: 1px solid #FFF;
+  border-radius: 3px;
+
+  opacity: 0.6;
+
+  color: #FFF;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 980px) {
+  .hero__container__info button {
+    margin: 0 auto;
+  }
+}
+
+.hero__container__image {
+  margin-left: auto;
+}
+
+@media screen and (max-width: 420px) {
+  .hero__container__image {
+    width: 210px;
+    height: 206px;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .hero__container__image {
+    margin: 0 auto;
+  }
+}

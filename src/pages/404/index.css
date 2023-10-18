@@ -1,0 +1,74 @@
+.notFountPage {
+  max-width: 1280px;
+
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.notFountPage__container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.notFountPage__head {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.notFountPage__head__title {
+  font-size: 140px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 420px) {
+  .notFountPage__head__title {
+    font-size: 80px;
+  }
+}
+
+.notFountPage__head__subtitle {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 420px) {
+  .notFountPage__head__subtitle {
+    font-size: 12px;
+  }
+}
+
+.notFountPage__back {
+  width: 100%;
+  margin: 0 auto;
+
+  position: absolute;
+  bottom: 60px;
+  left: 0;
+  font-size: 14px;
+
+  font-weight: 400;
+  text-align: center;
+
+  color: #FF6838;
+}
+
+@media screen and (max-width: 980px) {
+  .notFountPage__back {
+    bottom: 222px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .notFountPage__back {
+    bottom: 30px;
+    font-size: 12px;
+  }
+}
