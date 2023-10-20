@@ -3,7 +3,7 @@
 }
 
 .main-technologies__container {
-  padding: 100px 0;
+  padding: 97px 0;
 
   display: flex;
   flex-direction: column;
@@ -12,9 +12,11 @@
   .main-technologies__info {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 27px;
 
     .main-technologies__info-title {
+      margin: 0;
+
       font-size: 50px;
       font-weight: 400;
       line-height: 58px;
@@ -32,6 +34,8 @@
     }
 
     .main-technologies__info-subtitle {
+      margin: 0;
+
       font-size: 14px;
       font-weight: 400;
       line-height: 20px;

@@ -37,9 +37,9 @@ export default function Techs() {
           <SectionTitle title="Технологии" />
           <div>
             <div className="main-technologies__info">
-              <p className="main-technologies__info-title">
+              <h3 className="main-technologies__info-title">
                 7 технологий
-              </p>
+              </h3>
               <p className="main-technologies__info-subtitle">
                 На курсе веб-разработки мы освоили технологии, которые применили <br/> в дипломном проекте.
               </p>

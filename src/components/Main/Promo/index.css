@@ -3,7 +3,7 @@
 }
 
 .main-promo__container {
-  padding: 75px 0;
+  padding: 70px 0;
 
   display: flex;
 }
@@ -27,7 +27,7 @@
 }
 
 .main-promo__info {
-  max-width: 630px;
+  max-width: 635px;
 
   display: flex;
   flex-direction: column;
@@ -53,6 +53,8 @@
   }
 
   .main-promo__info-title {
+    margin: 0;
+
     font-size: 50px;
 
     font-weight: 400;
@@ -79,6 +81,10 @@
   }
 
   .main-promo__info-description {
+    max-width: 310px;
+
+    margin: 0;
+
     font-size: 13px;
     font-weight: 400;
 

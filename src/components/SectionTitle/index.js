@@ -4,10 +4,8 @@ import "./index.css";
 
 export default function SectionTitle(props) {
   return (
-    <div className="sectionTitle">
-      <p>
-        {props.title}
-      </p>
-    </div>
+    <p className="section-title">
+      {props.title}
+    </p>
   );
 }
