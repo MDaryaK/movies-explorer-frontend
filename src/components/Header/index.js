@@ -7,28 +7,11 @@ import burger from "../../images/icons/burger.svg"
 
 import "./index.css";
 
-export default function Header() {
+export default function Header({ type = "default" }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isMainPath = location.pathname !== "/";
-
-  const path = location.pathname;
-
-  const links = [
-    {
-      title: "Фильмы",
-      href: "/movies"
-    },
-    {
-      title: "Сохранненые фильмы",
-      href: "/saved-movies"
-    },
-    {
-      title: "Аккаунт",
-      href: "/profile"
-    }
-  ]
+  const isMainPath = location.pathname === "/";
 
   return (
     <header className={`header ${isMainPath ? "header-main" : ""}`}>
@@ -40,27 +23,52 @@ export default function Header() {
             alt="site logo"
             onClick={() => navigate("/")}
           />
-          <nav className={"header__nav"}>
-            {links.map(((item, index) => (
-              <p
-                className={`
-                    nav__item
-                    ${path === item.href ? "nav__item-active" : ""}
-                    ${isMainPath ? "header__nav-main" : ""}
-                  `}
-                onClick={() => navigate(item.href)}
-                key={index}
+          {type === "default" && (
+            <div className="header__actions">
+              <a
+                className="header__actions-link actions-link__signin"
+                href="/signin"
               >
-                {item.title}
-              </p>
-            )))}
-          </nav>
-          <button>
-            <img src={user} alt="user avatar" />
-          </button>
-          <div className="header__burgerBtn">
-            <img src={burger} alt="burger menu icon" />
-          </div>
+                Регистрация
+              </a>
+              <a
+                className="header__actions-link actions-link__signup"
+                href="/signup"
+              >
+                Войти
+              </a>
+            </div>
+          )}
+          {type === "profile" && (
+            <>
+              <ul className="header__nav">
+                <li
+                  className="header__nav-item"
+                  onClick={() => navigate("/movies")}
+                >
+                  Фильмы
+                </li>
+                <li
+                  className="header__nav-item"
+                  onClick={() => navigate("/saved-movies")}
+                >
+                  Сохраненные фильмы
+                </li>
+              </ul>
+              <div className="header__profile">
+                <span>Аккаунт</span>
+                <div className="header__profile-img">
+                  <img src={user} alt="" />
+                </div>
+              </div>
+              <button>
+                <img src={user} alt="user avatar" />
+              </button>
+              <div className="header__burgerBtn">
+                <img src={burger} alt="burger menu icon" />
+              </div>
+            </>
+          )}
         </div>
       </div>
     </header>
