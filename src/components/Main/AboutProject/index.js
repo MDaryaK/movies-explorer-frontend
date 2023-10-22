@@ -7,7 +7,7 @@ import "./index.css";
 export default function AboutProject() {
   return (
     <section id="about-project" className="main-about">
-      <div className="container">
+      <div className="landing-container">
         <div className="main-about__container">
           <SectionTitle title="О проекте" />
           <div className="main-about__information">

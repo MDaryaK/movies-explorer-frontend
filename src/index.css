@@ -12,8 +12,22 @@ body {
   padding: 0 70px;
 }
 
+.landing-container {
+  max-width: 1140px;
+
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
 @media screen and (max-width: 980px) {
   .container {
+    max-width: 708px;
+    padding: 0 30px;
+  }
+
+  .landing-container {
+    max-width: 769px;
+
     padding: 0 50px;
   }
 }
@@ -21,5 +35,9 @@ body {
 @media screen and (max-width: 420px) {
   .container {
     padding: 0 10px;
+  }
+
+  .landing-container {
+    padding: 0 18px;
   }
 }

@@ -11,6 +11,7 @@ import FilmsLayout from "./FilmsLayout";
 import "../index.css";
 import MainLayout from "../layouts/Main";
 import ProfileLayout from "../layouts/Profile";
+import AuthorizedLayout from "../layouts/Authorized";
 
 const films = FilmsData;
 
@@ -28,17 +29,17 @@ function App() {
       <Route
         path="/movies"
         element={(
-          <MainLayout>
+          <AuthorizedLayout>
             <FilmsLayout filmsList={films} />
-          </MainLayout>
+          </AuthorizedLayout>
         )}
       />
       <Route
         path="/saved-movies"
         element={(
-          <MainLayout>
+          <AuthorizedLayout>
             <FilmsLayout filmsList={films} />
-          </MainLayout>
+          </AuthorizedLayout>
         )}
       />
       <Route

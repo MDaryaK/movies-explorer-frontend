@@ -3,9 +3,9 @@ import Footer from "../components/Footer";
 
 export default function ProfileLayout({ children }) {
   return (
-    <div>
-      <Header />
-      {children}
-    </div>
+    <>
+      <Header type="profile" />
+      <main>{children}</main>
+    </>
   )
 }

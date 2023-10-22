@@ -9,7 +9,7 @@ import "./index.css";
 export default function AboutMe() {
   return (
     <section className="main-about-me">
-      <div className="container">
+      <div className="landing-container">
         <div className="main-about-me__container">
           <SectionTitle title="Студент" />
           <div className="main-about-me__block">

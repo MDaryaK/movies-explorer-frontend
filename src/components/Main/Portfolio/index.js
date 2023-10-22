@@ -22,7 +22,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <div className="container">
+    <div className="landing-container">
       <div className="main-portfolio">
         <p className="main-portfolio__title">
           Портфолио

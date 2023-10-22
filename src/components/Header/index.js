@@ -13,6 +13,8 @@ export default function Header({ type = "default" }) {
 
   const isMainPath = location.pathname === "/";
 
+  const path = location.pathname;
+
   return (
     <header className={`header ${isMainPath ? "header-main" : ""}`}>
       <div className="container">
@@ -38,24 +40,24 @@ export default function Header({ type = "default" }) {
             <>
               <ul className="header__nav">
                 <li
-                  className="header__nav-item"
+                  className={`header__nav-item ${path === "/movies" ? "header__nav-item_active" : ""}`}
                   onClick={() => navigate("/movies")}
                 >
                   Фильмы
                 </li>
                 <li
-                  className="header__nav-item"
+                  className={`header__nav-item ${path === "/saved-movies" ? "header__nav-item_active" : ""}`}
                   onClick={() => navigate("/saved-movies")}
                 >
                   Сохраненные фильмы
                 </li>
               </ul>
-              <div className="header__profile">
+              <a className="header__profile" href="/profile">
                 <span>Аккаунт</span>
                 <div className="header__profile-img">
                   <img src={user} alt="user avatar" />
                 </div>
-              </div>
+              </a>
             </>
           )}
         </div>

@@ -32,7 +32,7 @@ export default function Techs() {
 
   return (
     <section className="main-technologies">
-      <div className="container">
+      <div className="landing-container">
         <div className="main-technologies__container">
           <SectionTitle title="Технологии" />
           <div>
