@@ -18,9 +18,9 @@ export default function Promo() {
                 Листайте ниже, чтобы узнать больше про этот проект и его создателя.
               </p>
             </div>
-            <button>
+            <a href="#about-project">
               Узнать больше
-            </button>
+            </a>
           </div>
           <div className="main-promo__image">
             <img src={world} alt=""/>

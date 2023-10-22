@@ -2,10 +2,10 @@ import React from "react";
 
 import "./index.css";
 
-export default function SectionTitle(props) {
+export default function SectionTitle({ title }) {
   return (
-    <p className="section-title">
-      {props.title}
-    </p>
+    <h2 className="section-title">
+      {title}
+    </h2>
   );
 }

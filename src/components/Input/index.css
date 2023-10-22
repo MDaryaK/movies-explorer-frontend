@@ -1,0 +1,42 @@
+.input {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .input__name {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    color: #A0A0A0;
+  }
+
+  & input {
+    padding: 15px;
+    font-size: 13px;
+    font-weight: 400;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #F9F9F9;
+  }
+
+  .input__error {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    color: #EE3465;
+  }
+}
+
+.input-error {
+  & input {
+    color: #EE3465;
+  }
+}

@@ -24,13 +24,13 @@ export default function FilmItem({ title, hours, minute, preview, saved }) {
         <img
           className="film__head__saved"
           src={!isSaved ? unsaved_ico : saved_ico}
-          alt=""
+          alt="save icon"
           onClick={handleSaveClick}
         />
       </div>
       <img
         src={preview}
-        alt=""
+        alt="film preview"
       />
     </div>
   );

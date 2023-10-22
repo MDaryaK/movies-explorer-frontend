@@ -6,7 +6,7 @@ import "./index.css";
 
 export default function AboutProject() {
   return (
-    <section className="main-about">
+    <section id="about-project" className="main-about">
       <div className="container">
         <div className="main-about__container">
           <SectionTitle title="О проекте" />
@@ -32,17 +32,17 @@ export default function AboutProject() {
             <div className="main-about__weeks">
               <div className="main-about__weeks-item">
                 <div>
-                  <p>
+                  <h3>
                     1 неделя
-                  </p>
+                  </h3>
                 </div>
                 <p>Back-end</p>
               </div>
               <div className="main-about__weeks-item">
                 <div>
-                  <p>
+                  <h3>
                     4 недели
-                  </p>
+                  </h3>
                 </div>
                 <p>
                   Front-end

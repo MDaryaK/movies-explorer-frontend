@@ -24,7 +24,7 @@ export default function FilmsLayout({ filmsList }) {
             <img
               className="search__ico"
               src={search}
-              alt=""
+              alt="search icon"
             />
             <input
               type="tex"
@@ -33,7 +33,7 @@ export default function FilmsLayout({ filmsList }) {
             <img
               className="find__ico"
               src={find}
-              alt=""
+              alt="find icon"
             />
           </div>
           <div className="films__search__toggle">

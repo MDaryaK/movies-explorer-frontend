@@ -46,14 +46,12 @@ export default function Techs() {
             </div>
             <div className="main-technologies__list">
               {technologies.map(({ title }, index) => (
-                <div
+                <p
                   className="main-technologies__list-item"
                   key={index}
                 >
-                  <p>
-                    {title}
-                  </p>
-                </div>
+                  {title}
+                </p>
               ))}
             </div>
           </div>

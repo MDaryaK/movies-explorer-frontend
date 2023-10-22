@@ -3,9 +3,9 @@ import { FilmsData } from "../data/films";
 
 import Account from "../pages/account";
 import Landing from "../pages/Landing";
-import Auth from "../pages/(auth)/auth";
+import Auth from "../pages/auth";
 import NotFoundPage from "../pages/404";
-import Register from "../pages/(auth)/register";
+import Register from "../pages/signin";
 import FilmsLayout from "./FilmsLayout";
 
 import "../index.css";
@@ -49,8 +49,8 @@ function App() {
           </ProfileLayout>
         )}
       />
-      <Route path="/signin" element={ <Auth /> } />
-      <Route path="/signup" element={ <Register /> } />
+      <Route path="/signin" element={ <Register /> } />
+      <Route path="/signup" element={ <Auth /> } />
       <Route path="*" element={ <NotFoundPage /> } />
     </Routes>
   );

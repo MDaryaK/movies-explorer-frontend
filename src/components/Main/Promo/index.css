@@ -114,7 +114,7 @@
   }
 }
 
-.main-promo__info button {
+.main-promo__info a {
   width: fit-content;
 
   padding: 10px 20px;
@@ -125,6 +125,8 @@
 
   cursor: pointer;
 
+  text-decoration: none;
+
   border: 1px solid #FFF;
   border-radius: 3px;
 
@@ -133,7 +135,7 @@
 }
 
 @media screen and (max-width: 980px) {
-  .main-promo__info button {
+  .main-promo__info a {
     margin: 0 auto;
   }
 }
