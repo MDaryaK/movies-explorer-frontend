@@ -5,6 +5,12 @@ body {
   font-family: Inter, sans-serif;
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   max-width: 1140px;
 

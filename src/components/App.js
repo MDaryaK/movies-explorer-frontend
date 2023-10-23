@@ -1,9 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import { FilmsData } from "../data/films";
 
 import Landing from "../pages/Landing";
 import NotFoundPage from "../pages/404";
-import FilmsLayout from "./FilmsLayout";
 
 import "../index.css";
 import MainLayout from "../layouts/Main";
@@ -13,8 +11,8 @@ import EmptyLayout from "../layouts/Empty";
 import SignupPage from "../pages/signup";
 import SigninPage from "../pages/signin";
 import ProfilePage from "../pages/profile";
-
-const films = FilmsData;
+import MoviesPage from "../pages/movies";
+import SavedMoviesPage from "../pages/saved-movies";
 
 function App() {
   return (
@@ -31,7 +29,7 @@ function App() {
         path="/movies"
         element={(
           <AuthorizedLayout>
-            <FilmsLayout filmsList={films} />
+            <MoviesPage />
           </AuthorizedLayout>
         )}
       />
@@ -39,7 +37,7 @@ function App() {
         path="/saved-movies"
         element={(
           <AuthorizedLayout>
-            <FilmsLayout filmsList={films} />
+            <SavedMoviesPage />
           </AuthorizedLayout>
         )}
       />

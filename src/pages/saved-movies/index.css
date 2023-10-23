@@ -1,0 +1,30 @@
+.movies {
+  .movies__load-more {
+    width: 100%;
+    margin: 80px 0 78px 0;
+    padding: 10px 0;
+
+    color: #000;
+    border: none;
+
+    cursor: pointer;
+    transition: opacity .3s ease;
+
+    font-family: Inter, sans-serif;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 6px;
+    background: #F9F9F9;
+
+    @media screen and (max-width: 600px) {
+      margin: 80px 0 102px 0;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}

@@ -59,6 +59,9 @@ export default function Header({ type = "default" }) {
             </a>
           </>
         )}
+        <div className="header__burger">
+          <img src={burger} alt="burger icon" />
+        </div>
       </div>
     </header>
   );
