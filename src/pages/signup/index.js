@@ -9,7 +9,7 @@ export default function SignupPage() {
 
   return (
     <div className="container">
-      <div className="register">
+      <section className="register">
         <div className="register__head">
           <Logo />
           <h1>
@@ -31,7 +31,7 @@ export default function SignupPage() {
             </p>
           </div>
         </form>
-      </div>
+      </section>
     </div>
   );
 }

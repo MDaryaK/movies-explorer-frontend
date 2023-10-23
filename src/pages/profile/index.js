@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export default function ProfilePage() {
   return (
     <div className="container">
-      <div className="account">
+      <section className="account">
         <h1 className="account__title">
           Привет, Виталий!
         </h1>
@@ -34,7 +34,7 @@ export default function ProfilePage() {
             Выйти из аккаунта
           </Link>
         </div>
-      </div>
+      </section>
     </div>
   );
 }

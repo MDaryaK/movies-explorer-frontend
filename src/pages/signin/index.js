@@ -9,7 +9,7 @@ export default function SigninPage() {
 
   return (
     <div className="container">
-      <div className="login">
+      <section className="login">
         <div className="login__head">
           <Logo />
           <h1>
@@ -30,7 +30,7 @@ export default function SigninPage() {
             </p>
           </div>
         </form>
-      </div>
+      </section>
     </div>
   );
 }

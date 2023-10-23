@@ -146,9 +146,12 @@
 
 @media screen and (max-width: 600px) {
   .main-about-me__block-avatar {
-    width: 292px;
+    max-width: 292px;
+    width: 100%;
     height: 352px;
 
     margin: 0 auto;
+
+    object-fit: contain;
   }
 }
