@@ -1,52 +1,34 @@
-import { Link } from "react-router-dom";
-
-import logo from "../../images/logo.svg";
+import {Link} from "react-router-dom";
 
 import "./index.css";
+import Input from "../../components/Input";
+import Logo from "../../components/Logo";
 
 export default function SigninPage() {
   return (
-    <div className="auth">
-      <form className="auth__form">
-        <div>
-          <div className="auth__form__head">
-            <img src={logo} alt="" />
-            <p>
-              Рады видеть!
+    <div className="container">
+      <div className="login">
+        <div className="login__head">
+          <Logo />
+          <h1>
+            Рады видеть!
+          </h1>
+        </div>
+        <form className="login__form">
+          <div className="login__form-inputs">
+            <Input caption="E-mail" value="pochta@yandex.ru" />
+            <Input caption="Пароль" type="password" />
+          </div>
+          <div className="login__form-actions">
+            <button type="submit">
+              Войти
+            </button>
+            <p className="login__form-actions__create">
+              Ещё не зарегистрированы? <Link to="/signup">Регистрация</Link>
             </p>
           </div>
-          <div className="auth__form__actions">
-            <div className="input">
-              <label htmlFor="email">
-                E-mail
-              </label>
-              <input
-                id="email"
-                type="text"
-              />
-            </div>
-            <div className="input">
-              <label htmlFor="password">
-                Пароль
-              </label>
-              <input
-                id="password"
-                type="password"
-              />
-            </div>
-          </div>
-        </div>
-        <div  className="auth__form__entry">
-          <button type="submit">
-            Войти
-          </button>
-          <div className="auth__form__createAccount">
-            <p>
-              Ещё не зарегистрированы? <Link to="/register">Регистрация</Link>
-            </p>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
