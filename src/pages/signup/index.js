@@ -1,10 +1,12 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 import "./index.css";
 import Input from "../../components/Input";
 import Logo from "../../components/Logo";
 
 export default function SignupPage() {
+  const navigate = useNavigate();
+
   return (
     <div className="container">
       <div className="register">
@@ -14,7 +16,7 @@ export default function SignupPage() {
             Добро пожаловать!
           </h1>
         </div>
-        <form className="register__form">
+        <form className="register__form" onSubmit={() => navigate("/profile")}>
           <div className="register__form-inputs">
             <Input caption="Имя" value="Виталий" />
             <Input caption="E-mail" value="pochta@yandex.ru" />
