@@ -37,7 +37,7 @@ export default function SigninPage() {
           </div>
         </div>
         <div  className="auth__form__entry">
-          <button>
+          <button type="submit">
             Войти
           </button>
           <div className="auth__form__createAccount">

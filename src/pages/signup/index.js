@@ -25,7 +25,7 @@ export default function SignupPage() {
               Зарегистрироваться
             </button>
             <p className="register__form-actions__create">
-              Уже зарегистрированы? <Link to="/auth">Войти</Link>
+              Уже зарегистрированы? <Link to="/signin">Войти</Link>
             </p>
           </div>
         </form>

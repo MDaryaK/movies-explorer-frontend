@@ -1,18 +1,33 @@
 .register {
-  width: 396px;
+  max-width: 396px;
 
-  margin: 70px auto 0 auto;
+  margin: 0 auto;
+  padding-top: 70px;
 
   display: flex;
   flex-direction: column;
 
   position: relative;
 
+  @media screen and (max-width: 900px) {
+    padding-top: 232px;
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: 260px;
+    padding-top: 56px;
+  }
+
   .register__head {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
     gap: 40px;
+
+    @media screen and (max-width: 600px) {
+      align-items: center;
+      gap: 49px;
+    }
 
     & h1 {
       margin: 0;
@@ -36,12 +51,20 @@
     flex-direction: column;
     gap: 20px;
 
+    @media screen and (max-width: 600px) {
+      margin-top: 81px;
+    }
+
     .register__form-actions {
       padding-top: 51px;
 
       display: flex;
       flex-direction: column;
       gap: 16px;
+
+      @media screen and (max-width: 600px) {
+        padding-top: 138px;
+      }
 
       & button {
         width: 100%;
@@ -66,6 +89,11 @@
         color: #FFF;
         background: #FF6838;
 
+        @media screen and (max-width: 600px) {
+          padding: 15px 0;
+          font-size: 12px;
+        }
+
         &:hover {
           opacity: .7;
         }
@@ -83,13 +111,12 @@
 
         text-align: center;
 
+        @media screen and (max-width: 600px) {
+          font-size: 12px;
+        }
+
         & a {
           color: #FF6838;
-
-          font-size: 14px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: normal;
 
           text-decoration: none;
 
