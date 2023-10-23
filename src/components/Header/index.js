@@ -17,50 +17,48 @@ export default function Header({ type = "default" }) {
 
   return (
     <header className={`header ${isMainPath ? "header-main" : ""}`}>
-      <div className="container">
-        <div className="header__container">
-          <Logo />
-          {type === "default" && (
-            <div className="header__actions">
-              <a
-                className="header__actions-link actions-link__signin"
-                href="/signin"
+      <div className="header__container">
+        <Logo />
+        {type === "default" && (
+          <div className="header__actions">
+            <a
+              className="header__actions-link actions-link__signin"
+              href="/signup"
+            >
+              Регистрация
+            </a>
+            <a
+              className="header__actions-link actions-link__signup"
+              href="/signin"
+            >
+              Войти
+            </a>
+          </div>
+        )}
+        {type === "profile" && (
+          <>
+            <ul className="header__nav">
+              <li
+                className={`header__nav-item ${path === "/movies" ? "header__nav-item_active" : ""}`}
+                onClick={() => navigate("/movies")}
               >
-                Регистрация
-              </a>
-              <a
-                className="header__actions-link actions-link__signup"
-                href="/signup"
+                Фильмы
+              </li>
+              <li
+                className={`header__nav-item ${path === "/saved-movies" ? "header__nav-item_active" : ""}`}
+                onClick={() => navigate("/saved-movies")}
               >
-                Войти
-              </a>
-            </div>
-          )}
-          {type === "profile" && (
-            <>
-              <ul className="header__nav">
-                <li
-                  className={`header__nav-item ${path === "/movies" ? "header__nav-item_active" : ""}`}
-                  onClick={() => navigate("/movies")}
-                >
-                  Фильмы
-                </li>
-                <li
-                  className={`header__nav-item ${path === "/saved-movies" ? "header__nav-item_active" : ""}`}
-                  onClick={() => navigate("/saved-movies")}
-                >
-                  Сохраненные фильмы
-                </li>
-              </ul>
-              <a className="header__profile" href="/profile">
-                <span>Аккаунт</span>
-                <div className="header__profile-img">
-                  <img src={user} alt="user avatar" />
-                </div>
-              </a>
-            </>
-          )}
-        </div>
+                Сохраненные фильмы
+              </li>
+            </ul>
+            <a className="header__profile" href="/profile">
+              <span>Аккаунт</span>
+              <div className="header__profile-img">
+                <img src={user} alt="user avatar" />
+              </div>
+            </a>
+          </>
+        )}
       </div>
     </header>
   );

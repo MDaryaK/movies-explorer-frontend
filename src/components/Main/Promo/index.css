@@ -8,7 +8,7 @@
   display: flex;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-promo__container {
     padding: 140px 0 76px 0;
 
@@ -17,9 +17,9 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .main-promo__container {
-    padding: 70px 0 30px 0;
+    padding: 70px 0 27px 0;
 
     flex-direction: column-reverse;
     gap: 44px;
@@ -39,14 +39,14 @@
     gap: 36px;
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 900px) {
     .main-promo__info-wrapper {
       gap: 22px;
       text-align: center;
     }
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .main-promo__info-wrapper {
       gap: 24px;
     }
@@ -63,7 +63,7 @@
     color: #FFF;
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 900px) {
     .main-promo__info-title {
       font-size: 40px;
       line-height: 50px;
@@ -72,7 +72,7 @@
     }
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .main-promo__info-title {
       font-size: 30px;
       line-height: 38px;
@@ -93,7 +93,7 @@
     color: #FFF;
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 900px) {
     .main-promo__info-description {
       max-width: 260px;
       margin: 0 auto;
@@ -101,14 +101,14 @@
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-promo__info {
     margin: 0 auto;
     gap: 92px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .main-promo__info {
     gap: 80px;
   }
@@ -134,7 +134,7 @@
   background-color: transparent;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-promo__info a {
     margin: 0 auto;
   }
@@ -142,17 +142,24 @@
 
 .main-promo__image {
   margin-left: auto;
-}
 
-@media screen and (max-width: 420px) {
-  .main-promo__image {
-    width: 210px;
-    height: 206px;
+  & img {
+    width: 310px;
+    height: 304px;
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-promo__image {
     margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-promo__image {
+    & img {
+      width: 210px;
+      height: 206px;
+    }
   }
 }

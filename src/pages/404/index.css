@@ -29,7 +29,7 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .not-found__head__title {
     font-size: 80px;
   }
@@ -41,7 +41,7 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .not-found__head__subtitle {
     font-size: 12px;
   }
@@ -64,13 +64,13 @@
   color: #FF6838;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .not-found__back {
     bottom: 222px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .not-found__back {
     bottom: 30px;
     font-size: 12px;

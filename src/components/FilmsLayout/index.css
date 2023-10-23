@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .films {
     padding: 0 10px;
   }
@@ -33,7 +33,7 @@
     cursor: pointer;
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .search__ico {
       display: none;
     }
@@ -58,7 +58,7 @@
   outline: none;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .films__search input {
     padding: 0 14px 0 0;
   }
@@ -70,7 +70,7 @@
   color: #A0A0A0;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .films__search input::placeholder {
     font-size: 18px;
     text-align: start;
@@ -133,7 +133,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .films__search__toggle {
     margin: 42px auto 0;
   }

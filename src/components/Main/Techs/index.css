@@ -1,5 +1,9 @@
 .main-technologies {
   background-color: #F5F5F5;
+
+  @media screen and (max-width: 600px) {
+    background-color: unset;
+  }
 }
 
 .main-technologies__container {
@@ -25,7 +29,7 @@
       text-align: center;
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
       .main-technologies__info-title {
         font-size: 30px;
         line-height: normal;
@@ -34,7 +38,7 @@
     }
 
     .main-technologies__info-subtitle {
-      margin: 0;
+      margin: 0 auto;
 
       font-size: 14px;
       font-weight: 400;
@@ -44,22 +48,32 @@
       text-align: center;
     }
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 900px) {
       .main-technologies__info-subtitle {
+        max-width: 460px;
+
         font-size: 12px;
         line-height: 18px;
         letter-spacing: -0.48px;
       }
     }
+
+    @media screen and (max-width: 600px) {
+      .main-technologies__info-subtitle {
+        font-size: 11px;
+        line-height: 16px; /* 145.455% */
+        letter-spacing: -0.44px;
+      }
+    }
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 900px) {
     .main-technologies__info {
       gap: 22px;
     }
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .main-technologies__info {
       gap: 24px;
     }
@@ -92,7 +106,7 @@
       background: #E8E8E8;
     }
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 900px) {
       .main-technologies__list-item {
         width: 84px;
         height: 57px;
@@ -103,7 +117,7 @@
     }
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 900px) {
     .main-technologies__list {
       margin: 0 auto;
 
@@ -111,7 +125,7 @@
     }
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .main-technologies__list {
       max-width: 180px;
 
@@ -123,16 +137,16 @@
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-technologies__container {
-    padding: 90px 50px;
+    padding: 90px 0;
     gap: 80px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .main-technologies__container {
-    padding: 70px 18px;
+    padding: 70px 0;
     gap: 60px;
   }
 }
@@ -143,13 +157,13 @@
   gap: 100px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-technologies__container > div {
     gap: 83px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .main-technologies__container > div {
     gap: 50px;
   }

@@ -3,15 +3,16 @@ import { FilmsData } from "../data/films";
 
 import Account from "../pages/account";
 import Landing from "../pages/Landing";
-import Auth from "../pages/auth";
 import NotFoundPage from "../pages/404";
-import Register from "../pages/signin";
 import FilmsLayout from "./FilmsLayout";
 
 import "../index.css";
 import MainLayout from "../layouts/Main";
 import ProfileLayout from "../layouts/Profile";
 import AuthorizedLayout from "../layouts/Authorized";
+import EmptyLayout from "../layouts/Empty";
+import SignupPage from "../pages/signup";
+import SigninPage from "../pages/signin";
 
 const films = FilmsData;
 
@@ -50,9 +51,30 @@ function App() {
           </ProfileLayout>
         )}
       />
-      <Route path="/signin" element={ <Register /> } />
-      <Route path="/signup" element={ <Auth /> } />
-      <Route path="*" element={ <NotFoundPage /> } />
+      <Route
+        path="/signin"
+        element={(
+          <EmptyLayout>
+            <SigninPage />
+          </EmptyLayout>
+        )}
+      />
+      <Route
+        path="/signup"
+        element={(
+          <EmptyLayout>
+            <SignupPage />
+          </EmptyLayout>
+        )}
+      />
+      <Route
+        path="*"
+        element={(
+          <EmptyLayout>
+            <NotFoundPage />
+          </EmptyLayout>
+        )}
+      />
     </Routes>
   );
 }

@@ -11,15 +11,15 @@
   gap: 70px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-about__container {
-    padding: 90px 50px;
+    padding: 90px 0;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .main-about__container {
-    padding: 70px 18px;
+    padding: 70px 0;
     gap: 60px;
   }
 }
@@ -34,13 +34,13 @@
     gap: 52px;
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 900px) {
     .main-about__stages {
       gap: 30px;
     }
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .main-about__stages {
       flex-direction: column;
       gap: 56px;
@@ -56,13 +56,10 @@
       margin: 0;
 
       font-size: 20px;
-
       font-weight: 400;
       letter-spacing: -0.8px;
-    }
 
-    @media screen and (max-width: 420px) {
-      .main-about__stages-title {
+      @media screen and (max-width: 600px) {
         font-size: 18px;
         letter-spacing: -0.72px;
       }
@@ -76,13 +73,13 @@
       line-height: 20px;
     }
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 900px) {
       .main-about__stages-description {
         font-size: 12px;
       }
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
       .main-about__stages-description {
         font-size: 11px;
         line-height: 16px;
@@ -90,13 +87,13 @@
     }
   }
 
-  @media screen and (max-width: 980px) {
+  @media screen and (max-width: 900px) {
     .main-about__stages div {
       gap: 22px;
     }
   }
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 600px) {
     .main-about__stages div {
       gap: 16px;
     }
@@ -111,7 +108,7 @@
       gap: 14px;
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
       .main-about__weeks-item {
         gap: 10px;
       }
@@ -126,13 +123,13 @@
       box-sizing: border-box;
     }
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 900px) {
       .main-about__weeks-item div {
         padding: 9px 10px;
       }
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
       .main-about__weeks-item div {
         padding: 11px 10px;
       }
@@ -146,7 +143,11 @@
       color: #000;
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
+      .main-about__weeks-item div h3 {
+        font-size: 11px;
+      }
+
       .main-about__weeks-item div p {
         font-size: 11px;
         font-weight: 400;
@@ -163,13 +164,13 @@
       color: #A0A0A0;
     }
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 900px) {
       .main-about__weeks-item > p {
         font-weight: 400;
       }
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
       .main-about__weeks-item > p {
         font-size: 11px;
         line-height: normal;
@@ -186,13 +187,13 @@
       flex-direction: column;
     }
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 900px) {
       .main-about__weeks-item:nth-child(1) {
         max-width: 140px;
       }
     }
 
-    @media screen and (max-width: 420px) {
+    @media screen and (max-width: 600px) {
       .main-about__weeks-item:nth-child(1) {
         max-width: 100px;
       }
@@ -218,8 +219,14 @@
   }
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .main-about__information {
     gap: 90px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-about__information {
+    gap: 60px;
   }
 }

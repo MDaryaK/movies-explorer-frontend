@@ -19,7 +19,7 @@ body {
   padding: 0 70px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .container {
     max-width: 708px;
     padding: 0 30px;
@@ -32,12 +32,14 @@ body {
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .container {
+    max-width: 300px;
     padding: 0 10px;
   }
 
   .landing-container {
+    max-width: 284px;
     padding: 0 18px;
   }
 }

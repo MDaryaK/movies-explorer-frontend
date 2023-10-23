@@ -41,7 +41,7 @@ export default function Techs() {
                 7 технологий
               </h3>
               <p className="main-technologies__info-subtitle">
-                На курсе веб-разработки мы освоили технологии, которые применили <br/> в дипломном проекте.
+                На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
               </p>
             </div>
             <div className="main-technologies__list">

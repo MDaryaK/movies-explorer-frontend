@@ -3,6 +3,8 @@ import React from "react";
 import "./index.css";
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="container">
@@ -12,7 +14,7 @@ export default function Footer() {
           </p>
           <div className="footer__content">
             <p className="footer__copyright">
-              © 2023
+              © {year}
             </p>
             <div className="footer__links">
               <a

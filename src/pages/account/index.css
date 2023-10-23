@@ -10,14 +10,14 @@
   flex-direction: column;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 900px) {
   .account {
     margin-top: 230px;
     padding: 0 30px 0 30px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .account {
     height: 100%;
 
@@ -80,7 +80,7 @@
   gap: 16px;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .account__actions {
     margin-top: 0;
     padding-bottom: 40px;
@@ -96,7 +96,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .account__actions p {
     font-size: 12px;
   }

@@ -8,12 +8,12 @@ import Promo from "../components/Main/Promo";
 
 export default function Landing() {
   return (
-    <div>
+    <>
       <Promo />
       <AboutProject />
       <Techs />
       <AboutMe />
       <Portfolio />
-    </div>
+    </>
   );
 }

@@ -1,35 +1,52 @@
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
+import logo from "../../images/logo.svg";
 
 import "./index.css";
-import Input from "../../components/Input";
-import Logo from "../../components/Logo";
 
-export default function Register() {
+export default function SigninPage() {
   return (
-    <div className="container">
-      <div className="register">
-        <div className="register__head">
-          <Logo />
-          <h1>
-            Добро пожаловать!
-          </h1>
-        </div>
-        <form className="register__form">
-          <div className="register__form-inputs">
-            <Input caption="Имя" value="Виталий" />
-            <Input caption="E-mail" value="pochta@yandex.ru" />
-            <Input caption="Пароль" type="password" value="Виталий" error="Что-то пошло не так..." />
-          </div>
-          <div className="register__form-actions">
-            <button type="submit">
-              Зарегистрироваться
-            </button>
-            <p className="register__form-actions__create">
-              Уже зарегистрированы? <Link to="/auth">Войти</Link>
+    <div className="auth">
+      <form className="auth__form">
+        <div>
+          <div className="auth__form__head">
+            <img src={logo} alt="" />
+            <p>
+              Рады видеть!
             </p>
           </div>
-        </form>
-      </div>
+          <div className="auth__form__actions">
+            <div className="input">
+              <label htmlFor="email">
+                E-mail
+              </label>
+              <input
+                id="email"
+                type="text"
+              />
+            </div>
+            <div className="input">
+              <label htmlFor="password">
+                Пароль
+              </label>
+              <input
+                id="password"
+                type="password"
+              />
+            </div>
+          </div>
+        </div>
+        <div  className="auth__form__entry">
+          <button>
+            Войти
+          </button>
+          <div className="auth__form__createAccount">
+            <p>
+              Ещё не зарегистрированы? <Link to="/register">Регистрация</Link>
+            </p>
+          </div>
+        </div>
+      </form>
     </div>
   );
 }

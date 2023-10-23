@@ -16,7 +16,7 @@
   border-bottom: 1px solid black;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 600px) {
   .section-title {
     padding-bottom: 28px;
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import arrow from "../../../images/icons/arrow.png";
+import arrow from "../../../images/icons/arrow.svg";
 
 import "./index.css";
 
@@ -9,15 +9,15 @@ export default function Portfolio() {
   const portfolioLinks = [
     {
       title: "Статичный сайт",
-      link: ""
+      link: "https://github.com/MDaryaK/how-to-learn"
     },
     {
       title: "Адаптивный сайт",
-      link: ""
+      link: "https://github.com/MDaryaK/russian-travel"
     },
     {
       title: "Одностраничное приложение",
-      link: ""
+      link: "https://github.com/MDaryaK/react-mesto-api-full-gha"
     },
   ];
 
@@ -31,6 +31,7 @@ export default function Portfolio() {
           {portfolioLinks.map(({ title, link }, index) => (
             <a
               className="main-portfolio__links-item"
+              target="_blank"
               href={link}
               key={index}
             >
