@@ -123,11 +123,11 @@
       }
     }
 
-    .actions-link__signin {
+    .header__actions-link-signin {
       color: #FFF;
     }
 
-    .actions-link__signup {
+    .header__actions-link-signup {
       padding: 8px 20px;
 
       border-radius: 3px;

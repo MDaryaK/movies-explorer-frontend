@@ -22,13 +22,13 @@ export default function Header({ type = "default" }) {
         {type === "default" && (
           <div className="header__actions">
             <a
-              className="header__actions-link actions-link__signin"
+              className="header__actions-link header__actions-link-signin"
               href="/signup"
             >
               Регистрация
             </a>
             <a
-              className="header__actions-link actions-link__signup"
+              className="header__actions-link header__actions-link-signup"
               href="/signin"
             >
               Войти
