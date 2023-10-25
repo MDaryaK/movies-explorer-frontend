@@ -1,0 +1,140 @@
+.login {
+  max-width: 396px;
+
+  margin: 0 auto;
+  padding-top: 70px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+
+  @media screen and (max-width: 900px) {
+    padding-top: 232px;
+  }
+
+  @media screen and (max-width: 600px) {
+    max-width: 260px;
+    padding-top: 56px;
+  }
+
+  .login__head {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 40px;
+
+    @media screen and (max-width: 600px) {
+      align-items: center;
+      gap: 49px;
+    }
+
+    & h1 {
+      margin: 0;
+
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+
+      color: #000;
+    }
+  }
+
+  .login__form {
+    width: 100%;
+    height: 100%;
+
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media screen and (max-width: 600px) {
+      margin-top: 81px;
+    }
+
+    .login__form-actions {
+      padding-top: 161px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @media screen and (max-width: 600px) {
+        padding-top: 248px;
+      }
+
+      & button {
+        width: 100%;
+
+        padding: 14px 0;
+
+        font-family: Inter, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+
+        cursor: pointer;
+
+        border: none;
+        border-radius: 3px;
+
+        outline: none;
+
+        transition: opacity .3s ease;
+
+        color: #FFF;
+        background: #FF6838;
+
+        @media screen and (max-width: 600px) {
+          padding: 15px 0;
+          font-size: 12px;
+        }
+
+        &:hover {
+          opacity: .7;
+        }
+      }
+
+      .login__form-actions__create {
+        margin: 0;
+
+        color: #A0A0A0;
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+
+        text-align: center;
+
+        @media screen and (max-width: 600px) {
+          font-size: 12px;
+        }
+
+        & a {
+          color: #FF6838;
+
+          text-decoration: none;
+
+          cursor: pointer;
+
+          transition: opacity .3s ease;
+
+          &:hover {
+            opacity: .7;
+          }
+        }
+      }
+    }
+
+    .login__form-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+}

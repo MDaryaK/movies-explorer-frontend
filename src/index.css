@@ -1,0 +1,51 @@
+@import "fonts/Inter/index.css";
+
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1140px;
+
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+.landing-container {
+  max-width: 1140px;
+
+  margin: 0 auto;
+  padding: 0 70px;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    max-width: 708px;
+    padding: 0 30px;
+  }
+
+  .landing-container {
+    max-width: 769px;
+
+    padding: 0 50px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    max-width: 300px;
+    padding: 0 10px;
+  }
+
+  .landing-container {
+    max-width: 284px;
+    padding: 0 18px;
+  }
+}

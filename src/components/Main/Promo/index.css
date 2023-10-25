@@ -1,0 +1,171 @@
+.main-promo {
+  background-color: #465DFF;
+}
+
+.main-promo__container {
+  padding: 75px 0;
+
+  display: flex;
+}
+
+@media screen and (max-width: 900px) {
+  .main-promo__container {
+    padding: 140px 0 76px 0;
+
+    flex-direction: column-reverse;
+    gap: 44px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-promo__container {
+    padding: 70px 0 27px 0;
+
+    flex-direction: column-reverse;
+    gap: 44px;
+  }
+}
+
+.main-promo__info {
+  max-width: 635px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 146px;
+
+  .main-promo__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .main-promo__info-wrapper {
+      gap: 22px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .main-promo__info-wrapper {
+      gap: 24px;
+    }
+  }
+
+  .main-promo__info-title {
+    margin: 0;
+
+    font-size: 50px;
+
+    font-weight: 400;
+    font-style: normal;
+    line-height: 58px;
+    color: #FFF;
+  }
+
+  @media screen and (max-width: 900px) {
+    .main-promo__info-title {
+      font-size: 40px;
+      line-height: 50px;
+
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .main-promo__info-title {
+      font-size: 30px;
+      line-height: 38px;
+      letter-spacing: -1.2px;
+    }
+  }
+
+  .main-promo__info-description {
+    max-width: 310px;
+
+    margin: 0;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    opacity: .5;
+
+    color: #FFF;
+  }
+
+  @media screen and (max-width: 900px) {
+    .main-promo__info-description {
+      max-width: 260px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-promo__info {
+    margin: 0 auto;
+    gap: 92px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-promo__info {
+    gap: 80px;
+  }
+}
+
+.main-promo__info a {
+  width: fit-content;
+
+  padding: 10px 20px;
+
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  border: 1px solid #FFF;
+  border-radius: 3px;
+
+  color: #FFF;
+  background-color: transparent;
+
+  transition: opacity .3s ease;
+
+  &:hover {
+    opacity: .7;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-promo__info a {
+    margin: 0 auto;
+  }
+}
+
+.main-promo__image {
+  margin-left: auto;
+
+  & img {
+    width: 310px;
+    height: 304px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main-promo__image {
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .main-promo__image {
+    & img {
+      width: 210px;
+      height: 206px;
+    }
+  }
+}
