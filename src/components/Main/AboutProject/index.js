@@ -13,17 +13,17 @@ export default function AboutProject() {
           <div className="main-about__information">
             <div className="main-about__stages">
               <div>
-                <p className="main-about__stages-title">
+                <h3 className="main-about__stages-title">
                   Дипломный проект включал 5 этапов
-                </p>
+                </h3>
                 <p className="main-about__stages-description">
                   Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.
                 </p>
               </div>
               <div>
-                <p className="main-about__stages-title">
+                <h3 className="main-about__stages-title">
                   На выполнение диплома ушло 5 недель
-                </p>
+                </h3>
                 <p className="main-about__stages-description">
                   У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.
                 </p>

@@ -64,8 +64,13 @@
   }
 
   .footer__links {
+    margin: 0;
+    padding: 0;
+
     display: flex;
     gap: 20px;
+
+    list-style: none;
   }
 
   @media screen and (max-width: 600px) {
@@ -75,17 +80,23 @@
     }
   }
 
-  .footer__links a {
+  .footer__links-item {
     font-size: 13px;
     font-weight: 400;
 
     text-decoration: none;
 
+    transition: opacity .3s ease;
+
     color: #000000;
+
+    &:hover {
+      opacity: .7;
+    }
   }
 
   @media screen and (max-width: 600px) {
-    .footer__links a {
+    .footer__links-item {
       text-align: center;
     }
   }

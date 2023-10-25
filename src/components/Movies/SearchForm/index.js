@@ -17,16 +17,17 @@ export default function SearchForm() {
         <img
           className="movies-search__icon movies-search__icon-find"
           src={search}
-          alt="search icon"
+          alt="иконка лупы"
         />
         <input
+          className="movies-search__input"
           type="text"
           placeholder="Фильм"
         />
         <img
           className="movies-search__icon movies-search__icon-search"
           src={find}
-          alt="find icon"
+          alt="иконка поиска"
         />
       </div>
       <div className="movies-search__switch">

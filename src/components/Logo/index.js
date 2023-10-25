@@ -10,7 +10,7 @@ export default function Logo() {
     <img
       className="logo"
       src={logo}
-      alt="site logo"
+      alt="логотип"
       onClick={() => navigate("/")}
     />
   );

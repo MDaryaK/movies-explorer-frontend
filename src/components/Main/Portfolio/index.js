@@ -27,19 +27,22 @@ export default function Portfolio() {
         <p className="main-portfolio__title">
           Портфолио
         </p>
-        <div className="main-portfolio__links">
+        <ul className="main-portfolio__links">
           {portfolioLinks.map(({ title, link }, index) => (
-            <a
-              className="main-portfolio__links-item"
-              target="_blank"
-              href={link}
-              key={index}
-            >
-              <p>{title}</p>
-              <img src={arrow} alt="arrow icon" />
-            </a>
+            <li className="main-portfolio__links-item">
+              <a
+                className="main-portfolio__links-href"
+                target="_blank"
+                rel="noreferrer"
+                href={link}
+                key={index}
+              >
+                <span>{title}</span>
+                <img src={arrow} alt="стрелочка перехода" />
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   );

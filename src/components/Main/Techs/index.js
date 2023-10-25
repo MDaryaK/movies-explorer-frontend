@@ -44,16 +44,16 @@ export default function Techs() {
                 На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.
               </p>
             </div>
-            <div className="main-technologies__list">
+            <ul className="main-technologies__list">
               {technologies.map(({ title }, index) => (
-                <p
+                <li
                   className="main-technologies__list-item"
                   key={index}
                 >
                   {title}
-                </p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </div>

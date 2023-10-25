@@ -8,28 +8,32 @@ export default function ProfilePage() {
         <h1 className="account__title">
           Привет, Виталий!
         </h1>
-        <div className="account-form">
+        <form className="account-form">
           <div className="account-form__item">
             <p className="account-form__item-title">
               Имя
             </p>
-            <p className="account-form__item-value">
-              Виталий
-            </p>
+            <input
+              className="account-form__item-value"
+              type="text"
+              value="Виталий"
+            />
           </div>
           <div className="account-form__item">
             <p className="account-form__item-title">
               E-mail
             </p>
-            <p className="account-form__item-value">
-              pochta@yandex.ru
-            </p>
+            <input
+              className="account-form__item-value"
+              type="email"
+              value="pochta@yandex.ru"
+            />
           </div>
-        </div>
+        </form>
         <div className="account__actions">
-          <p className="account__actions-edit">
+          <Link className="account__actions-edit" to="/">
             Редактировать
-          </p>
+          </Link>
           <Link className="account__actions-logout" to="/">
             Выйти из аккаунта
           </Link>

@@ -132,6 +132,12 @@
 
   color: #FFF;
   background-color: transparent;
+
+  transition: opacity .3s ease;
+
+  &:hover {
+    opacity: .7;
+  }
 }
 
 @media screen and (max-width: 900px) {

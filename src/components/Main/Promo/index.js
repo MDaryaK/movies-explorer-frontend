@@ -23,7 +23,7 @@ export default function Promo() {
             </a>
           </div>
           <div className="main-promo__image">
-            <img src={world} alt=""/>
+            <img src={world} alt="изображение планеты" />
           </div>
         </div>
       </div>

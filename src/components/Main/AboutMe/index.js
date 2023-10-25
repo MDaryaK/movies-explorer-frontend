@@ -15,9 +15,9 @@ export default function AboutMe() {
           <div className="main-about-me__block">
             <div className="main-about-me__info">
               <div>
-                <p className="main-about-me__info-name">
+                <h3 className="main-about-me__info-name">
                   Виталий
-                </p>
+                </h3>
                 <p className="main-about-me__info-profession">
                   Фронтенд-разработчик, 30 лет
                 </p>
