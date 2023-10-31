@@ -1,7 +1,14 @@
 import "./index.css";
-import {Link} from "react-router-dom";
+import {Link, redirect, useNavigate} from "react-router-dom";
+import axios from "axios";
 
 export default function ProfilePage() {
+
+  const logout = () => {
+    delete axios.defaults.headers["authorization"];
+    localStorage.removeItem("token");
+  };
+
   return (
     <div className="container">
       <section className="account">
@@ -34,7 +41,11 @@ export default function ProfilePage() {
           <Link className="account__actions-edit" to="/">
             Редактировать
           </Link>
-          <Link className="account__actions-logout" to="/">
+          <Link
+            className="account__actions-logout"
+            to="/"
+            onClick={logout}
+          >
             Выйти из аккаунта
           </Link>
         </div>
