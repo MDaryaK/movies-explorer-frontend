@@ -33,13 +33,8 @@ function App() {
     }
   };
 
-  const onSignin = async (values) => {
+  const onSignin = async () => {
     try {
-      const { data: { token } } = await axios.post("/signin", values);
-
-      axios.defaults.headers["authorization"] = `Bearer ${token}`;
-      localStorage.setItem("token", token);
-
       const { data: user } = await axios.get("/users/me");
       setCurrentUser(user);
 

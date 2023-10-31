@@ -26,7 +26,16 @@ export default function SigninPage({ onSignin }) {
       return;
     }
 
-    onSignin && onSignin(formValues);
+    try {
+      const { data: { token } } = await axios.post("/signin", formValues);
+
+      axios.defaults.headers["authorization"] = `Bearer ${token}`;
+      localStorage.setItem("token", token);
+
+      onSignin && onSignin(token);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   return (
