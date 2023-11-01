@@ -11,7 +11,7 @@ export default function MoviesCard({ type = "default", name, link, time, img, da
     e.preventDefault();
 
     try {
-      const formData = {
+      const { data: movieCard } = await axios.post("/movies", {
         country: data.country,
         director: data.director,
         duration: data.duration,
@@ -23,11 +23,9 @@ export default function MoviesCard({ type = "default", name, link, time, img, da
         movieId: data.id,
         nameRU: data.nameRU,
         nameEN: data.nameEN,
-      };
+      });
 
-      await axios.post("/movies", formData);
-
-      onFavorite && onFavorite(type, formData, true);
+      onFavorite && onFavorite(type, movieCard, true);
     } catch (e) {
       console.log(e);
     }
