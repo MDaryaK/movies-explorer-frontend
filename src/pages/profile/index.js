@@ -51,14 +51,14 @@ export default function ProfilePage({ onSave }) {
   }, [formErrors, user, form]);
 
   const saveProfile = async () => {
+    setDisabled(true);
+
     try {
       await axios.patch("/users/me", formValues);
       setIsEdit(false);
     } catch (e) {
       console.log(e);
-
       setError(e.response.data.message);
-      setDisabled(true);
     }
 
     onSave && onSave(formValues);

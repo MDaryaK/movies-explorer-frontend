@@ -1,14 +1,10 @@
-import SearchForm from "../../components/Movies/SearchForm";
-
 import "./index.css";
-import MoviesList from "../../components/Movies/MoviesList";
-import {useContext, useEffect, useMemo, useState} from "react";
-import Preloader from "../../components/Preloader/Preloader";
-import {FilmsContext} from "../../contexts/Films";
+import {useEffect, useMemo, useState} from "react";
+import SearchForm from "../SearchForm";
+import MoviesList from "../MoviesList";
+import Preloader from "../../Preloader/Preloader";
 
-export default function MoviesPage() {
-
-  const initialFilms = useContext(FilmsContext);
+export default function MoviesWrapper({ type = "default", data, savedFilms, onFavorite }) {
 
   const [shortValue, setShortValue] = useState(false);
   const [searchValue, setSearchValue] = useState("");
@@ -16,15 +12,13 @@ export default function MoviesPage() {
   const [limit, setLimit] = useState(12);
   const [page, setPage] = useState(1);
 
-  const [films, setFilms] = useState(initialFilms.data);
+  const [films, setFilms] = useState(data.data);
 
-  const limitedFilms = useMemo(() => {
-    return [ ...(films ? films : []) ].splice(0, limit * page);
-  }, [films, limit, page]);
+  const limitedFilms = [ ...(films ? films : []) ].splice(0, limit * page);
 
   useEffect(() => {
-    setFilms(initialFilms.data);
-  }, [initialFilms]);
+    setFilms(data.data);
+  }, [data]);
 
   useEffect(() => {
     onResize();
@@ -34,7 +28,7 @@ export default function MoviesPage() {
   }, []);
 
   const filter = (search, checked) => {
-    let newFilms = [ ...initialFilms.data ];
+    let newFilms = [ ...data.data ];
 
     newFilms = checked ? (
       newFilms.filter((item) => item.duration <= 40)
@@ -97,19 +91,24 @@ export default function MoviesPage() {
 
   return (
     <div className="container">
-      <div className="movies">
+      <div className="movies-wrapper">
         <SearchForm
           shortValue={shortValue}
           searchValue={searchValue}
           onSearchValue={handleSearchChange}
           onShortChange={handleShortChange}
         />
-        {!initialFilms.loading ? (
+        {(!data.loading && !savedFilms.loading) ? (
           <>
-            <MoviesList data={limitedFilms} />
+            <MoviesList
+              type={type}
+              data={limitedFilms}
+              savedFilms={savedFilms}
+              onFavorite={onFavorite}
+            />
             {limitedFilms.length < (films?.length || 0) && (
               <button
-                className="movies__load-more"
+                className="movies-wrapper__load-more"
                 type="button"
                 onClick={showMore}
               >

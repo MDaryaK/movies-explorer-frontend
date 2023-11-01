@@ -39,6 +39,8 @@ export default function SigninPage({ onSignin }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setDisabled(true);
+
     try {
       const { data: { token } } = await axios.post("/signin", formValues);
 
@@ -47,8 +49,6 @@ export default function SigninPage({ onSignin }) {
       onSignin && onSignin(token);
     } catch (e) {
       console.log(e);
-
-      setDisabled(true);
       setError(e.response.data.message);
     }
   };

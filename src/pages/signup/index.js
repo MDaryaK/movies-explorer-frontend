@@ -44,13 +44,13 @@ export default function SignupPage({ onSignup }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setDisabled(true);
+
     try {
       await axios.post("/signup", formValues);
       navigate("/signin");
     } catch (e) {
       console.log(e);
-
-      setDisabled(true);
       setError(e.response.data.message);
     }
 

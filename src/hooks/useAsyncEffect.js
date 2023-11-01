@@ -7,5 +7,5 @@ export function useAsyncEffect(
 
   useEffect(() => {
     effect();
-  }, [...deps, effect]);
+  }, deps);
 }

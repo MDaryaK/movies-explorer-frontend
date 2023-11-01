@@ -11,21 +11,27 @@ import EmptyLayout from "../layouts/Empty";
 import SignupPage from "../pages/signup";
 import SigninPage from "../pages/signin";
 import ProfilePage from "../pages/profile";
-import MoviesPage from "../pages/movies";
-import SavedMoviesPage from "../pages/saved-movies";
+import MoviesPage from "../pages/Movies";
+import SavedMoviesPage from "../pages/SavedMovies";
 import ProtectedRoute from "./ProtectedRoute";
 import {useState} from "react";
 import {CurrentUserContext} from "../contexts/CurrentUser";
 import axios from "axios";
 import {useAsyncEffect} from "../hooks/useAsyncEffect";
 import Token from "../utils/Token";
-import {FilmsContext} from "../contexts/Films";
 import AuthRoute from "./AuthRoute";
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
+
   const [films, setFilms] = useState({
+    data: null,
+    error: "",
+    loading: true
+  });
+
+  const [savedFilms, setSavedFilms] = useState({
     data: null,
     error: "",
     loading: true
@@ -34,26 +40,6 @@ function App() {
   const [render, setRender] = useState(false);
 
   const navigate = useNavigate();
-
-  // Get films
-  useAsyncEffect(async () => {
-    try {
-      const { data } = await axios.get("https://api.nomoreparties.co/beatfilm-movies");
-
-      setFilms({
-        data,
-        loading: false
-      });
-    } catch (e) {
-      console.log(e);
-
-      setFilms({
-        data: null,
-        error: "Что-то пошло не так",
-        loading: false
-      });
-    }
-  }, []);
 
   // Check token
   useAsyncEffect(async () => {
@@ -77,6 +63,46 @@ function App() {
     setRender(true);
   }, []);
 
+  // Get films
+  useAsyncEffect(async () => {
+    try {
+      const { data } = await axios.get("https://api.nomoreparties.co/beatfilm-movies");
+
+      setFilms({
+        data,
+        loading: false
+      });
+    } catch (e) {
+      console.log(e);
+
+      setFilms({
+        data: null,
+        error: "Что-то пошло не так",
+        loading: false
+      });
+    }
+  }, []);
+
+  // Get saved films
+  useAsyncEffect(async () => {
+    try {
+      const { data } = await axios.get("/movies");
+
+      setSavedFilms({
+        data,
+        loading: false
+      });
+    } catch (e) {
+      console.log(e);
+
+      setSavedFilms({
+        data: null,
+        error: "Что-то пошло не так",
+        loading: false
+      });
+    }
+  }, []);
+
   const onSignin = async () => {
     try {
       const { data: user } = await axios.get("/users/me");
@@ -95,82 +121,108 @@ function App() {
     });
   };
 
+  const onFavorite = async (type, data, isFavorite) => {
+    const newSavedFilms = { ...savedFilms };
+
+    console.log(type, data, isFavorite);
+
+    if (isFavorite) {
+      newSavedFilms.data.push(data);
+    } else {
+      const findSavedIndex = type === "saved" ? (
+        newSavedFilms.data.findIndex((item) => data._id === item._id)
+      ) : newSavedFilms.data.findIndex((item) => data.id === item.movieId);
+      const savedItem = savedFilms.data[findSavedIndex];
+
+      console.log(findSavedIndex);
+
+      try {
+        await axios.delete("/movies/" + savedItem._id);
+        newSavedFilms.data.splice(findSavedIndex, 1);
+      } catch (e) {
+        console.log(e);
+      }
+
+      console.log(newSavedFilms.data);
+    }
+
+    setSavedFilms(newSavedFilms);
+  };
+
   if (!render) {
     return null;
   }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <FilmsContext.Provider value={films}>
-        <Routes>
-          <Route
-            path="/"
-            element={(
-              <MainLayout>
-                <Landing />
-              </MainLayout>
-            )}
-          />
-          <Route
-            path="/movies"
-            element={(
-              <ProtectedRoute isAuth={currentUser !== null}>
-                <AuthorizedLayout>
-                  <MoviesPage />
-                </AuthorizedLayout>
-              </ProtectedRoute>
-            )}
-          />
-          <Route
-            path="/saved-movies"
-            element={(
-              <ProtectedRoute isAuth={currentUser !== null}>
-                <AuthorizedLayout>
-                  <SavedMoviesPage />
-                </AuthorizedLayout>
-              </ProtectedRoute>
-            )}
-          />
-          <Route
-            path="/profile"
-            element={(
-              <ProtectedRoute isAuth={currentUser !== null}>
-                <ProfileLayout>
-                  <ProfilePage onSave={onProfileSave} />
-                </ProfileLayout>
-              </ProtectedRoute>
-            )}
-          />
-          <Route
-            path="/signin"
-            element={(
-              <AuthRoute isAuth={currentUser !== null}>
-                <EmptyLayout>
-                  <SigninPage onSignin={onSignin} />
-                </EmptyLayout>
-              </AuthRoute>
-            )}
-          />
-          <Route
-            path="/signup"
-            element={(
-              <AuthRoute isAuth={currentUser !== null}>
-                <EmptyLayout>
-                  <SignupPage />
-                </EmptyLayout>
-              </AuthRoute>
-            )}
-          />
-          <Route
-            path="*"
-            element={(
+      <Routes>
+        <Route
+          path="/"
+          element={(
+            <MainLayout>
+              <Landing />
+            </MainLayout>
+          )}
+        />
+        <Route
+          path="/movies"
+          element={(
+            <ProtectedRoute isAuth={currentUser !== null}>
+              <AuthorizedLayout>
+                <MoviesPage data={films} savedFilms={savedFilms} onFavorite={onFavorite} />
+              </AuthorizedLayout>
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/saved-movies"
+          element={(
+            <ProtectedRoute isAuth={currentUser !== null}>
+              <AuthorizedLayout>
+                <SavedMoviesPage data={savedFilms} savedFilms={[]} onFavorite={onFavorite} />
+              </AuthorizedLayout>
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/profile"
+          element={(
+            <ProtectedRoute isAuth={currentUser !== null}>
+              <ProfileLayout>
+                <ProfilePage onSave={onProfileSave} />
+              </ProfileLayout>
+            </ProtectedRoute>
+          )}
+        />
+        <Route
+          path="/signin"
+          element={(
+            <AuthRoute isAuth={currentUser !== null}>
               <EmptyLayout>
-                <NotFoundPage />
+                <SigninPage onSignin={onSignin} />
               </EmptyLayout>
-            )}
-          />
-        </Routes>
-      </FilmsContext.Provider>
+            </AuthRoute>
+          )}
+        />
+        <Route
+          path="/signup"
+          element={(
+            <AuthRoute isAuth={currentUser !== null}>
+              <EmptyLayout>
+                <SignupPage />
+              </EmptyLayout>
+            </AuthRoute>
+          )}
+        />
+        <Route
+          path="*"
+          element={(
+            <EmptyLayout>
+              <NotFoundPage />
+            </EmptyLayout>
+          )}
+        />
+      </Routes>
     </CurrentUserContext.Provider>
   );
 }
