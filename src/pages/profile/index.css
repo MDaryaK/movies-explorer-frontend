@@ -103,8 +103,67 @@
       font-weight: 400;
       text-decoration: none;
 
+      cursor: pointer;
+
       @media screen and (max-width: 600px) {
         font-size: 12px;
+      }
+    }
+
+    .account__actions-error {
+      margin: 0;
+
+      color: #FF004C;
+
+      text-align: center;
+      font-size: 11px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+    }
+
+    .account__actions-save {
+      width: 410px;
+
+      margin-top: 20px;
+      padding: 14px 0;
+
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+
+      cursor: pointer;
+
+      border: none;
+      border-radius: 3px;
+
+      outline: none;
+
+      transition: opacity .3s ease;
+
+      color: #FFF;
+      background: #FF6838;
+
+      @media screen and (max-width: 600px) {
+        padding: 15px 0;
+        font-size: 12px;
+      }
+
+      &:hover {
+        opacity: .7;
+      }
+
+      &:disabled {
+        cursor: default;
+
+        color: #C2C2C2;
+        background: #F8F8F8;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
 

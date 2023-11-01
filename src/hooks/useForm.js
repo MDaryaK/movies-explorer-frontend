@@ -1,21 +1,25 @@
-import {useState} from "react";
+import {useMemo, useState} from "react";
 
-export default function useForm(schema) {
+export default function useForm(schema, initState) {
 
   const [form, setForm] = useState(
-    Object.keys(schema.fields).reduce((obj, currentValue) => ({
+    Object.keys(schema.fields).reduce((obj, key) => ({
       ...obj,
-      [currentValue]: {
-        value: "",
+      [key]: {
+        value: initState && initState[key] || "",
         error: ""
       }
     }), {})
   );
 
-  const formValues = Object.keys(form).reduce((obj, key) => ({
-    ...obj,
-    [key]: form[key].value
-  }), {});
+  const formValues = useMemo(() => {
+    return Object.keys(form).reduce((obj, key) => ({
+      ...obj,
+      [key]: form[key].value
+    }), {})
+  }, [form]);
+
+  const formErrors = useMemo(() => Object.keys(form).map((key) => form[key].error).filter((item) => item && item), [form]);
 
   const handleInputChange = async (e) => {
     const { name, value } = e.target;
@@ -74,6 +78,7 @@ export default function useForm(schema) {
   return {
     form,
     formValues,
+    formErrors,
     setForm,
     validate,
     handleInputChange

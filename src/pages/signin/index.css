@@ -69,6 +69,7 @@
       & button {
         width: 100%;
 
+        margin-top: 20px;
         padding: 14px 0;
 
         font-family: Inter, sans-serif;
@@ -97,6 +98,29 @@
         &:hover {
           opacity: .7;
         }
+
+        &:disabled {
+          cursor: default;
+
+          color: #C2C2C2;
+          background: #F8F8F8;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      .login__form-actions__error {
+        margin: 0;
+
+        color: #FF004C;
+
+        text-align: center;
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
       }
 
       .login__form-actions__create {

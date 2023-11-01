@@ -6,6 +6,8 @@ import Input from "../../components/Input";
 import Logo from "../../components/Logo";
 import useForm from "../../hooks/useForm";
 import axios from "axios";
+import {useEffect, useState} from "react";
+import {useFirstRender} from "../../hooks/useFirstRender";
 
 const signupSchema = object({
   name: string()
@@ -21,13 +23,35 @@ const signupSchema = object({
 
 export default function SignupPage({ onSignup }) {
 
-  const { form, formValues, validate, handleInputChange } = useForm(signupSchema);
+  const { form, formValues, formErrors, validate, handleInputChange } = useForm(signupSchema);
+
+  const firstRender = useFirstRender();
+
+  const [error, setError] = useState("");
+  const [disabled, setDisabled] = useState(true);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (firstRender) {
+      return;
+    }
+
+    setError("");
+    setDisabled(formErrors.length !== 0);
+  }, [formErrors]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (await validate()) {
-      return;
+    try {
+      await axios.post("/signup", formValues);
+      navigate("/signin");
+    } catch (e) {
+      console.log(e);
+
+      setDisabled(true);
+      setError(e.response.data.message);
     }
 
     onSignup && onSignup(formValues);
@@ -66,7 +90,10 @@ export default function SignupPage({ onSignup }) {
             />
           </div>
           <div className="register__form-actions">
-            <button type="submit">
+            {error && (
+              <p className="register__form-actions__error">{error}</p>
+            )}
+            <button type="submit" disabled={disabled}>
               Зарегистрироваться
             </button>
             <p className="register__form-actions__create">

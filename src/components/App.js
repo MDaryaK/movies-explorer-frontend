@@ -17,21 +17,36 @@ import ProtectedRoute from "./ProtectedRoute";
 import {useState} from "react";
 import {CurrentUserContext} from "../contexts/CurrentUser";
 import axios from "axios";
+import {useAsyncEffect} from "../hooks/useAsyncEffect";
+import Token from "../utils/Token";
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
+  const [render, setRender] = useState(false);
 
   const navigate = useNavigate();
 
-  const onSignup = async (values) => {
+  useAsyncEffect(async () => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setRender(true);
+      return;
+    }
+
+    Token.set(token);
+
     try {
-      await axios.post("/signup", values);
-      navigate("/signin");
+      const { data: user } = await axios.get("/users/me");
+      setCurrentUser(user);
     } catch (e) {
       console.log(e);
+      Token.remove();
     }
-  };
+
+    setRender(true);
+  }, []);
 
   const onSignin = async () => {
     try {
@@ -43,6 +58,10 @@ function App() {
       console.log(e);
     }
   };
+
+  if (!render) {
+    return null;
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -97,7 +116,7 @@ function App() {
           path="/signup"
           element={(
             <EmptyLayout>
-              <SignupPage onSignup={onSignup} />
+              <SignupPage />
             </EmptyLayout>
           )}
         />

@@ -1,4 +1,4 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import "./index.css";
 import Input from "../../components/Input";
@@ -6,6 +6,10 @@ import Logo from "../../components/Logo";
 import useForm from "../../hooks/useForm";
 import axios from "axios";
 import {object, string} from "yup";
+import {useEffect, useState} from "react";
+import {useAsyncEffect} from "../../hooks/useAsyncEffect";
+import {useFirstRender} from "../../hooks/useFirstRender";
+import Token from "../../utils/Token";
 
 const signinSchema = object({
   email: string()
@@ -17,24 +21,36 @@ const signinSchema = object({
 
 export default function SigninPage({ onSignin }) {
 
-  const { form, formValues, validate, handleInputChange } = useForm(signinSchema);
+  const { form, formValues, formErrors, validate, handleInputChange } = useForm(signinSchema);
+
+  const firstRender = useFirstRender();
+
+  const [error, setError] = useState("");
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if (firstRender) {
+      return;
+    }
+
+    setError("");
+    setDisabled(formErrors.length !== 0);
+  }, [formErrors]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (await validate()) {
-      return;
-    }
-
     try {
       const { data: { token } } = await axios.post("/signin", formValues);
 
-      axios.defaults.headers["authorization"] = `Bearer ${token}`;
-      localStorage.setItem("token", token);
+      Token.set(token);
 
       onSignin && onSignin(token);
     } catch (e) {
       console.log(e);
+
+      setDisabled(true);
+      setError(e.response.data.message);
     }
   };
 
@@ -64,7 +80,10 @@ export default function SigninPage({ onSignin }) {
             />
           </div>
           <div className="login__form-actions">
-            <button type="submit">
+            {error && (
+              <p className="login__form-actions__error">{error}</p>
+            )}
+            <button type="submit" disabled={disabled}>
               Войти
             </button>
             <p className="login__form-actions__create">
