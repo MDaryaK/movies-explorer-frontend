@@ -59,6 +59,13 @@ function App() {
     }
   };
 
+  const onProfileSave = (user) => {
+    setCurrentUser({
+      ...currentUser,
+      ...user
+    });
+  };
+
   if (!render) {
     return null;
   }
@@ -99,7 +106,7 @@ function App() {
           element={(
             <ProtectedRoute isAuth={currentUser !== null}>
               <ProfileLayout>
-                <ProfilePage />
+                <ProfilePage onSave={onProfileSave} />
               </ProfileLayout>
             </ProtectedRoute>
           )}

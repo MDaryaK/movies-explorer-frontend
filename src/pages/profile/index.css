@@ -73,6 +73,11 @@
         &:focus {
           outline: 1px solid #000000;
         }
+
+        &:disabled {
+          color: #000000;
+          background: transparent;
+        }
       }
     }
   }

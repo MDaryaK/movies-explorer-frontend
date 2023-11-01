@@ -18,7 +18,7 @@ const profileSchema = object({
     .required("Поле обязательно для заполнения")
 });
 
-export default function ProfilePage() {
+export default function ProfilePage({ onSave }) {
 
   const user = useContext(CurrentUserContext);
 
@@ -42,8 +42,18 @@ export default function ProfilePage() {
     setDisabled(formErrors.length !== 0);
   }, [formErrors]);
 
-  const saveProfile = () => {
+  const saveProfile = async () => {
+    try {
+      await axios.patch("/users/me", formValues);
+      setIsEdit(false);
+    } catch (e) {
+      console.log(e);
 
+      setError(e.response.data.message);
+      setDisabled(true);
+    }
+
+    onSave && onSave(formValues);
   };
 
   return (
@@ -62,6 +72,7 @@ export default function ProfilePage() {
               name="name"
               type="text"
               value={form.name.value}
+              disabled={!isEdit}
               onChange={handleInputChange}
             />
           </div>
@@ -74,6 +85,7 @@ export default function ProfilePage() {
               name="email"
               type="email"
               value={form.email.value}
+              disabled={!isEdit}
               onChange={handleInputChange}
             />
           </div>
