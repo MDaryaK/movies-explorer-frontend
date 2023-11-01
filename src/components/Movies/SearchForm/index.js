@@ -4,12 +4,7 @@ import find from "../../../images/icons/find.svg";
 import React, {useState} from "react";
 import Switch from "../../Switch";
 
-export default function SearchForm() {
-  const [isShortFilm, setIsShortFilm] = useState(false);
-
-  const toggleShortFilm = () => {
-    setIsShortFilm(!isShortFilm);
-  };
+export default function SearchForm({ searchValue, shortValue, onSearchValue, onShortChange }) {
 
   return (
     <form className="movies-search">
@@ -22,7 +17,9 @@ export default function SearchForm() {
         <input
           className="movies-search__input"
           type="text"
+          value={searchValue}
           placeholder="Фильм"
+          onChange={onSearchValue}
         />
         <img
           className="movies-search__icon movies-search__icon-search"
@@ -31,7 +28,11 @@ export default function SearchForm() {
         />
       </div>
       <div className="movies-search__switch">
-        <Switch caption="Короткометражки" />
+        <Switch
+          caption="Короткометражки"
+          checked={shortValue}
+          onClick={() => onShortChange()}
+        />
       </div>
     </form>
   );

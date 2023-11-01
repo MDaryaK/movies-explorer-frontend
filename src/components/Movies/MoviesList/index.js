@@ -1,17 +1,22 @@
 import MoviesCard from "../MoviesCard";
-import Preview from "../../../images/preview.png";
 import "./index.css";
+import formatDuration from "../../../functions/formatDuration";
 
-export default function MoviesList() {
+export default function MoviesList({ data }) {
   return (
     <div className="movies__list">
-      {new Array(12).fill(null).map(() => (
-        <MoviesCard
-          name="33 слова о дизайне"
-          time="1ч 47м"
-          img={Preview}
-        />
-      ))}
+      {data && data.map((item) => {
+        const { hours, minutes } = formatDuration(item.duration);
+
+        return (
+          <MoviesCard
+            key={item.id}
+            name={item.nameRU}
+            time={`${hours}ч ${minutes > 0 ? `${minutes}м` : ''}`}
+            img={`https://api.nomoreparties.co/${item.image.url}`}
+          />
+        );
+      })}
     </div>
   );
 }

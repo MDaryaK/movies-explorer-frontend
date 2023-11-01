@@ -29,13 +29,12 @@ export default function Portfolio() {
         </p>
         <ul className="main-portfolio__links">
           {portfolioLinks.map(({ title, link }, index) => (
-            <li className="main-portfolio__links-item">
+            <li className="main-portfolio__links-item" key={link}>
               <a
                 className="main-portfolio__links-href"
                 target="_blank"
                 rel="noreferrer"
                 href={link}
-                key={index}
               >
                 <span>{title}</span>
                 <img src={arrow} alt="стрелочка перехода" />

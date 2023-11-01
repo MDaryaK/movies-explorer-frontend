@@ -40,7 +40,15 @@ export default function ProfilePage({ onSave }) {
 
     setError("");
     setDisabled(formErrors.length !== 0);
-  }, [formErrors]);
+  }, [formErrors, firstRender]);
+
+  useEffect(() => {
+    if (formErrors.length !== 0) {
+      return;
+    }
+
+    setDisabled(user.name === form.name.value && user.email === form.email.value);
+  }, [user, form]);
 
   const saveProfile = async () => {
     try {

@@ -19,14 +19,42 @@ import {CurrentUserContext} from "../contexts/CurrentUser";
 import axios from "axios";
 import {useAsyncEffect} from "../hooks/useAsyncEffect";
 import Token from "../utils/Token";
+import {FilmsContext} from "../contexts/Films";
 
 function App() {
 
   const [currentUser, setCurrentUser] = useState(null);
+  const [films, setFilms] = useState({
+    data: null,
+    error: "",
+    loading: true
+  });
+
   const [render, setRender] = useState(false);
 
   const navigate = useNavigate();
 
+  // Get films
+  useAsyncEffect(async () => {
+    try {
+      const { data } = await axios.get("https://api.nomoreparties.co/beatfilm-movies");
+
+      setFilms({
+        data,
+        loading: false
+      });
+    } catch (e) {
+      console.log(e);
+
+      setFilms({
+        data: null,
+        error: "Что-то пошло не так",
+        loading: false
+      });
+    }
+  }, []);
+
+  // Check token
   useAsyncEffect(async () => {
     const token = localStorage.getItem("token");
 
@@ -72,70 +100,72 @@ function App() {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
-      <Routes>
-        <Route
-          path="/"
-          element={(
-            <MainLayout>
-              <Landing />
-            </MainLayout>
-          )}
-        />
-        <Route
-          path="/movies"
-          element={(
-            <ProtectedRoute isAuth={currentUser !== null}>
-              <AuthorizedLayout>
-                <MoviesPage />
-              </AuthorizedLayout>
-            </ProtectedRoute>
-          )}
-        />
-        <Route
-          path="/saved-movies"
-          element={(
-            <ProtectedRoute isAuth={currentUser !== null}>
-              <AuthorizedLayout>
-                <SavedMoviesPage />
-              </AuthorizedLayout>
-            </ProtectedRoute>
-          )}
-        />
-        <Route
-          path="/profile"
-          element={(
-            <ProtectedRoute isAuth={currentUser !== null}>
-              <ProfileLayout>
-                <ProfilePage onSave={onProfileSave} />
-              </ProfileLayout>
-            </ProtectedRoute>
-          )}
-        />
-        <Route
-          path="/signin"
-          element={(
-            <EmptyLayout>
-              <SigninPage onSignin={onSignin} />
-            </EmptyLayout>
-          )}
-        />
-        <Route
-          path="/signup"
-          element={(
-            <EmptyLayout>
-              <SignupPage />
-            </EmptyLayout>
-          )}
-        />
-        <Route
-          path="*"
-          element={(
-            <EmptyLayout>
-              <NotFoundPage />
-            </EmptyLayout>
-          )}
-        />
-      </Routes>
+      <FilmsContext.Provider value={films}>
+        <Routes>
+          <Route
+            path="/"
+            element={(
+              <MainLayout>
+                <Landing />
+              </MainLayout>
+            )}
+          />
+          <Route
+            path="/movies"
+            element={(
+              <ProtectedRoute isAuth={currentUser !== null}>
+                <AuthorizedLayout>
+                  <MoviesPage />
+                </AuthorizedLayout>
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/saved-movies"
+            element={(
+              <ProtectedRoute isAuth={currentUser !== null}>
+                <AuthorizedLayout>
+                  <SavedMoviesPage />
+                </AuthorizedLayout>
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/profile"
+            element={(
+              <ProtectedRoute isAuth={currentUser !== null}>
+                <ProfileLayout>
+                  <ProfilePage onSave={onProfileSave} />
+                </ProfileLayout>
+              </ProtectedRoute>
+            )}
+          />
+          <Route
+            path="/signin"
+            element={(
+              <EmptyLayout>
+                <SigninPage onSignin={onSignin} />
+              </EmptyLayout>
+            )}
+          />
+          <Route
+            path="/signup"
+            element={(
+              <EmptyLayout>
+                <SignupPage />
+              </EmptyLayout>
+            )}
+          />
+          <Route
+            path="*"
+            element={(
+              <EmptyLayout>
+                <NotFoundPage />
+              </EmptyLayout>
+            )}
+          />
+        </Routes>
+      </FilmsContext.Provider>
     </CurrentUserContext.Provider>
   );
 }

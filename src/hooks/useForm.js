@@ -6,7 +6,7 @@ export default function useForm(schema, initState) {
     Object.keys(schema.fields).reduce((obj, key) => ({
       ...obj,
       [key]: {
-        value: initState && initState[key] || "",
+        value: (initState && initState[key]) || "",
         error: ""
       }
     }), {})
