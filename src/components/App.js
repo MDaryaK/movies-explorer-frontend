@@ -20,6 +20,7 @@ import axios from "axios";
 import {useAsyncEffect} from "../hooks/useAsyncEffect";
 import Token from "../utils/Token";
 import {FilmsContext} from "../contexts/Films";
+import AuthRoute from "./AuthRoute";
 
 function App() {
 
@@ -143,17 +144,21 @@ function App() {
           <Route
             path="/signin"
             element={(
-              <EmptyLayout>
-                <SigninPage onSignin={onSignin} />
-              </EmptyLayout>
+              <AuthRoute isAuth={currentUser !== null}>
+                <EmptyLayout>
+                  <SigninPage onSignin={onSignin} />
+                </EmptyLayout>
+              </AuthRoute>
             )}
           />
           <Route
             path="/signup"
             element={(
-              <EmptyLayout>
-                <SignupPage />
-              </EmptyLayout>
+              <AuthRoute isAuth={currentUser !== null}>
+                <EmptyLayout>
+                  <SignupPage />
+                </EmptyLayout>
+              </AuthRoute>
             )}
           />
           <Route
