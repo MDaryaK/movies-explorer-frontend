@@ -1,7 +1,7 @@
 import "./index.css";
 import search from "../../../images/icons/search.svg";
 import find from "../../../images/icons/find.svg";
-import React, {useState} from "react";
+import React from "react";
 import Switch from "../../Switch";
 
 export default function SearchForm({ searchValue, shortValue, onSearchValue, onShortChange }) {

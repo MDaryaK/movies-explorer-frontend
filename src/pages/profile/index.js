@@ -1,5 +1,5 @@
 import "./index.css";
-import {Link, redirect, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {CurrentUserContext} from "../../contexts/CurrentUser";
@@ -48,7 +48,7 @@ export default function ProfilePage({ onSave }) {
     }
 
     setDisabled(user.name === form.name.value && user.email === form.email.value);
-  }, [user, form]);
+  }, [formErrors, user, form]);
 
   const saveProfile = async () => {
     try {

@@ -1,5 +1,4 @@
 import "./index.css";
-import {useState} from "react";
 
 export default function Switch({ caption, checked, onClick }) {
   return (

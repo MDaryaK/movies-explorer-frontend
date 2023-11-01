@@ -7,7 +7,6 @@ import useForm from "../../hooks/useForm";
 import axios from "axios";
 import {object, string} from "yup";
 import {useEffect, useState} from "react";
-import {useAsyncEffect} from "../../hooks/useAsyncEffect";
 import {useFirstRender} from "../../hooks/useFirstRender";
 import Token from "../../utils/Token";
 
@@ -21,7 +20,7 @@ const signinSchema = object({
 
 export default function SigninPage({ onSignin }) {
 
-  const { form, formValues, formErrors, validate, handleInputChange } = useForm(signinSchema);
+  const { form, formValues, formErrors, handleInputChange } = useForm(signinSchema);
 
   const firstRender = useFirstRender();
 
@@ -35,7 +34,7 @@ export default function SigninPage({ onSignin }) {
 
     setError("");
     setDisabled(formErrors.length !== 0);
-  }, [formErrors]);
+  }, [formErrors, firstRender]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

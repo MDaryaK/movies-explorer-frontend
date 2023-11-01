@@ -23,7 +23,7 @@ const signupSchema = object({
 
 export default function SignupPage({ onSignup }) {
 
-  const { form, formValues, formErrors, validate, handleInputChange } = useForm(signupSchema);
+  const { form, formValues, formErrors, handleInputChange } = useForm(signupSchema);
 
   const firstRender = useFirstRender();
 
@@ -39,7 +39,7 @@ export default function SignupPage({ onSignup }) {
 
     setError("");
     setDisabled(formErrors.length !== 0);
-  }, [formErrors]);
+  }, [formErrors, firstRender]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
