@@ -16,7 +16,7 @@ const signupSchema = object({
     .max(30, "Максимально 30 символов")
     .required("Поле обязательно для заполнения"),
   email: string()
-    .email("Email не валидный")
+    .matches(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, "Email не валидный")
     .required("Поле обязательно для заполнения"),
   password: string()
     .required("Поле обязательно для заполнения"),

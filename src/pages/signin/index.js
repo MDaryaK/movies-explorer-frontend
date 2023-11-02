@@ -12,7 +12,7 @@ import Token from "../../utils/Token";
 
 const signinSchema = object({
   email: string()
-    .email("Email не валидный")
+    .matches(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/, "Email не валидный")
     .required("Поле обязательно для заполнения"),
   password: string()
     .required("Поле обязательно для заполнения"),
