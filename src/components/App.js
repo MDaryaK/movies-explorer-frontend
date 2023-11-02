@@ -118,7 +118,7 @@ function App() {
 
       await getSavedFilms();
 
-      navigate("/profile");
+      navigate("/movies");
     } catch (e) {
       console.log(e);
     }
@@ -219,7 +219,7 @@ function App() {
           element={(
             <AuthRoute isAuth={currentUser !== null}>
               <EmptyLayout>
-                <SignupPage />
+                <SignupPage onSignup={onSignin} />
               </EmptyLayout>
             </AuthRoute>
           )}

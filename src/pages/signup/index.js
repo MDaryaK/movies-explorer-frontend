@@ -8,6 +8,7 @@ import useForm from "../../hooks/useForm";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {useFirstRender} from "../../hooks/useFirstRender";
+import Token from "../../utils/Token";
 
 const signupSchema = object({
   name: string()
@@ -46,7 +47,7 @@ export default function SignupPage({ onSignup }) {
         || form.password.value.length === 0
       )
     );
-  }, [formErrors, firstRender]);
+  }, [formErrors, firstRender, form]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +56,13 @@ export default function SignupPage({ onSignup }) {
 
     try {
       await axios.post("/signup", formValues);
-      navigate("/signin");
+
+      const { data: { token } } = await axios.post("/signin", {
+        email: formValues.email,
+        password: formValues.password
+      });
+
+      Token.set(token);
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);

@@ -48,29 +48,39 @@ export default function MoviesCard({ type = "default", name, link, time, img, da
           <h2 className="movies-card__head-name">{name}</h2>
           <p className="movies-card__head-time">{time}</p>
         </div>
-        <div className={`movies-card__head-icon ${isFavorite ? "movies-card__head-icon-active" : ""}`}>
-          {type === "default" ? (
-            !isFavorite ? (
+        {type === "default" ? (
+          !isFavorite ? (
+            <div
+              className="movies-card__head-icon"
+              onClick={addToFavorite}
+            >
               <img
                 src={FavoriteIcon}
                 alt="добавить в избранное"
-                onClick={addToFavorite}
               />
-            ) : (
+            </div>
+          ) : (
+            <div
+              className="movies-card__head-icon movies-card__head-icon-active"
+              onClick={removeFromFavorite}
+            >
               <img
                 src={UnfavoriteIcon}
                 alt="убрать из избранного"
-                onClick={removeFromFavorite}
               />
-            )
-          ) : (
+            </div>
+          )
+        ) : (
+          <div
+            className="movies-card__head-icon"
+            onClick={removeFromFavorite}
+          >
             <img
               src={DeleteIcon}
               alt="убрать из избранного"
-              onClick={removeFromFavorite}
             />
-          )}
-        </div>
+          </div>
+        )}
       </div>
       <img className="movies-card__preview" src={img} alt={name} />
     </a>

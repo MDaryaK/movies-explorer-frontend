@@ -40,7 +40,7 @@ export default function SigninPage({ onSignin }) {
         || form.password.value.length === 0
       )
     );
-  }, [formErrors, firstRender]);
+  }, [formErrors, firstRender, form]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
