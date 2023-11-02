@@ -30,7 +30,7 @@ export default function ProfilePage({ onSave, onSignout }) {
   const firstRender = useFirstRender();
 
   const [error, setError] = useState("");
-  const [disabled, setDisabled] = useState(false);
+  const [disabled, setDisabled] = useState(true);
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
@@ -39,16 +39,11 @@ export default function ProfilePage({ onSave, onSignout }) {
     }
 
     setError("");
-    setDisabled(formErrors.length !== 0);
-  }, [formErrors, firstRender]);
-
-  useEffect(() => {
-    if (formErrors.length !== 0) {
-      return;
-    }
-
-    setDisabled(user.name === form.name.value && user.email === form.email.value);
-  }, [formErrors, user, form]);
+    setDisabled(
+      formErrors.length !== 0
+      || user.name === form.name.value && user.email === form.email.value
+    );
+  }, [formErrors, form, user, firstRender]);
 
   const saveProfile = async () => {
     setDisabled(true);
