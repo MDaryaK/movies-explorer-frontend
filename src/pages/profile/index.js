@@ -41,7 +41,7 @@ export default function ProfilePage({ onSave, onSignout }) {
     setError("");
     setDisabled(
       formErrors.length !== 0
-      || user.name === form.name.value && user.email === form.email.value
+      || (user.name === form.name.value && user.email === form.email.value)
     );
   }, [formErrors, form, user, firstRender]);
 
