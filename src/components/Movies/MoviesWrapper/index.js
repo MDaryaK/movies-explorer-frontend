@@ -60,11 +60,11 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
   const onResize = () => {
     const width = document.getElementById("root").clientWidth;
 
-    if (width > 1280) {
+    if (width > 900) {
       setLimit(LIMIT_1280);
-    } else if (width > 768) {
+    } else if (width > 600) {
       setLimit(LIMIT_768);
-    } else if (width > 320) {
+    } else {
       setLimit(LIMIT_360);
     }
 
