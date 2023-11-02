@@ -33,7 +33,13 @@ export default function SigninPage({ onSignin }) {
     }
 
     setError("");
-    setDisabled(formErrors.length !== 0);
+    setDisabled(
+      formErrors.length !== 0
+      || (
+        form.email.value.length === 0
+        || form.password.value.length === 0
+      )
+    );
   }, [formErrors, firstRender]);
 
   const handleSubmit = async (e) => {
