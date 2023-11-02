@@ -1,7 +1,10 @@
 import "./index.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export default function NotFoundPage() {
+
+  const navigate = useNavigate()
+
   return (
     <div className="container">
       <section className="not-found">
@@ -14,12 +17,9 @@ export default function NotFoundPage() {
               Страница не найдена
             </p>
           </div>
-          <Link
-            className="not-found__back"
-            to="/"
-          >
+          <p className="not-found__back" onClick={() => navigate(-1)}>
             Назад
-          </Link>
+          </p>
         </div>
       </section>
     </div>

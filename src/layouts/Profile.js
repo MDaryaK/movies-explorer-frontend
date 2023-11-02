@@ -3,7 +3,7 @@ import Header from "../components/Header";
 export default function ProfileLayout({ children }) {
   return (
     <>
-      <Header type="profile" />
+      <Header />
       <main>{children}</main>
     </>
   )

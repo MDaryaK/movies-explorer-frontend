@@ -1,14 +1,17 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import user from "../../images/icons/user.svg"
+import UserIcon from "../../images/icons/user.svg"
 import burger from "../../images/icons/burger.svg"
 import close from "../../images/icons/close.svg"
 
 import "./index.css";
 import Logo from "../Logo";
+import {CurrentUserContext} from "../../contexts/CurrentUser";
 
-export default function Header({ type = "default" }) {
+export default function Header() {
+
+  const user = useContext(CurrentUserContext);
 
   const [burgerOpened, setBurgerOpened] = useState(false);
 
@@ -30,7 +33,7 @@ export default function Header({ type = "default" }) {
     <header className={`header ${isMainPath ? "header-main" : ""}`}>
       <div className="header__container">
         <Logo />
-        {type === "default" && (
+        {!user && (
           <div className="header__actions">
             <a
               className="header__actions-link header__actions-link-signin"
@@ -46,7 +49,7 @@ export default function Header({ type = "default" }) {
             </a>
           </div>
         )}
-        {type === "profile" && (
+        {user && (
           <>
             <ul className="header__nav">
               <li
@@ -65,7 +68,7 @@ export default function Header({ type = "default" }) {
             <a className="header-profile" href="/profile">
               <span>Аккаунт</span>
               <span className="header-profile__img">
-              <img src={user} alt="аватар пользователя" />
+              <img src={UserIcon} alt="аватар пользователя" />
             </span>
             </a>
             <div className="header__burger">
@@ -110,7 +113,7 @@ export default function Header({ type = "default" }) {
           <a className="header-profile" href="/profile">
             <span>Аккаунт</span>
             <span className="header-profile__img">
-              <img src={user} alt="аватар пользователя" />
+              <img src={UserIcon} alt="аватар пользователя" />
             </span>
           </a>
         </div>
