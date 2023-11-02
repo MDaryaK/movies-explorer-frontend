@@ -18,7 +18,7 @@ const profileSchema = object({
     .required("Поле обязательно для заполнения")
 });
 
-export default function ProfilePage({ onSave }) {
+export default function ProfilePage({ onSave, onSignout }) {
 
   const user = useContext(CurrentUserContext);
 
@@ -62,6 +62,11 @@ export default function ProfilePage({ onSave }) {
     }
 
     onSave && onSave(formValues);
+  };
+
+  const signOut = () => {
+    Token.remove();
+    onSignout && onSignout();
   };
 
   return (
@@ -126,7 +131,7 @@ export default function ProfilePage({ onSave }) {
               <Link
                 className="account__actions-logout"
                 to="/"
-                onClick={() => Token.remove()}
+                onClick={signOut}
               >
                 Выйти из аккаунта
               </Link>

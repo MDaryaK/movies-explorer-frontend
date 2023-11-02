@@ -3,7 +3,6 @@ import "./index.css";
 import formatDuration from "../../../functions/formatDuration";
 
 export default function MoviesList({ type = "default", data, savedFilms, onFavorite }) {
-  console.log("movie list", data);
   return (
     <>
       <div className="movies__list">

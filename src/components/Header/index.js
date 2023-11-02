@@ -1,5 +1,5 @@
 import React, {useContext, useState} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
 import UserIcon from "../../images/icons/user.svg"
 import burger from "../../images/icons/burger.svg"
@@ -35,18 +35,18 @@ export default function Header() {
         <Logo />
         {!user && (
           <div className="header__actions">
-            <a
+            <Link
               className="header__actions-link header__actions-link-signin"
-              href="/signup"
+              to="/signup"
             >
               Регистрация
-            </a>
-            <a
+            </Link>
+            <Link
               className="header__actions-link header__actions-link-signup"
-              href="/signin"
+              to="/signin"
             >
               Войти
-            </a>
+            </Link>
           </div>
         )}
         {user && (
@@ -65,12 +65,12 @@ export default function Header() {
                 Сохраненные фильмы
               </li>
             </ul>
-            <a className="header-profile" href="/profile">
+            <Link className="header-profile" to="/profile">
               <span>Аккаунт</span>
               <span className="header-profile__img">
-              <img src={UserIcon} alt="аватар пользователя" />
-            </span>
-            </a>
+                <img src={UserIcon} alt="аватар пользователя" />
+              </span>
+            </Link>
             <div className="header__burger">
               <img
                 src={burger}
@@ -110,12 +110,12 @@ export default function Header() {
               Сохранённые фильмы
             </li>
           </ul>
-          <a className="header-profile" href="/profile">
+          <Link className="header-profile" to="/profile">
             <span>Аккаунт</span>
             <span className="header-profile__img">
               <img src={UserIcon} alt="аватар пользователя" />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

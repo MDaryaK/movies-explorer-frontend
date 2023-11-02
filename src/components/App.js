@@ -14,10 +14,9 @@ import ProfilePage from "../pages/profile";
 import MoviesPage from "../pages/Movies";
 import SavedMoviesPage from "../pages/SavedMovies";
 import ProtectedRoute from "./ProtectedRoute";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {CurrentUserContext} from "../contexts/CurrentUser";
 import axios from "axios";
-import {useAsyncEffect} from "../hooks/useAsyncEffect";
 import Token from "../utils/Token";
 import AuthRoute from "./AuthRoute";
 
@@ -32,7 +31,7 @@ function App() {
   });
 
   const [savedFilms, setSavedFilms] = useState({
-    data: null,
+    data: [],
     error: "",
     loading: true
   });
@@ -41,8 +40,17 @@ function App() {
 
   const navigate = useNavigate();
 
-  // Check token
-  useAsyncEffect(async () => {
+  useEffect(() => {
+    init().catch(err => console.log(err));
+  }, []);
+
+  const init = async () => {
+    getFilms().catch(err => console.log(err));
+
+    await checkToken();
+  };
+
+  const checkToken = async () => {
     const token = localStorage.getItem("token");
 
     if (!token) {
@@ -55,16 +63,17 @@ function App() {
     try {
       const { data: user } = await axios.get("/users/me");
       setCurrentUser(user);
+
+      await getSavedFilms();
     } catch (e) {
       console.log(e);
       Token.remove();
     }
 
     setRender(true);
-  }, []);
+  };
 
-  // Get films
-  useAsyncEffect(async () => {
+  const getFilms = async () => {
     try {
       const { data } = await axios.get("https://api.nomoreparties.co/beatfilm-movies");
 
@@ -81,10 +90,9 @@ function App() {
         loading: false
       });
     }
-  }, []);
+  };
 
-  // Get saved films
-  useAsyncEffect(async () => {
+  const getSavedFilms = async () => {
     try {
       const { data } = await axios.get("/movies");
 
@@ -101,12 +109,14 @@ function App() {
         loading: false
       });
     }
-  }, []);
+  };
 
   const onSignin = async () => {
     try {
       const { data: user } = await axios.get("/users/me");
       setCurrentUser(user);
+
+      await getSavedFilms();
 
       navigate("/profile");
     } catch (e) {
@@ -124,8 +134,6 @@ function App() {
   const onFavorite = async (type, data, isFavorite) => {
     const newSavedFilms = { ...savedFilms };
 
-    console.log(type, data, isFavorite);
-
     if (isFavorite) {
       newSavedFilms.data.push(data);
     } else {
@@ -133,8 +141,6 @@ function App() {
         newSavedFilms.data.findIndex((item) => data._id === item._id)
       ) : newSavedFilms.data.findIndex((item) => data.id === item.movieId);
       const savedItem = savedFilms.data[findSavedIndex];
-
-      console.log(findSavedIndex);
 
       try {
         await axios.delete("/movies/" + savedItem._id);
@@ -147,6 +153,10 @@ function App() {
     }
 
     setSavedFilms(newSavedFilms);
+  };
+
+  const onSignout = () => {
+    setCurrentUser(null);
   };
 
   if (!render) {
@@ -189,7 +199,7 @@ function App() {
           element={(
             <ProtectedRoute isAuth={currentUser !== null}>
               <ProfileLayout>
-                <ProfilePage onSave={onProfileSave} />
+                <ProfilePage onSave={onProfileSave} onSignout={onSignout} />
               </ProfileLayout>
             </ProtectedRoute>
           )}
