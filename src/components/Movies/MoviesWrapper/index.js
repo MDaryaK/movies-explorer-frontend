@@ -1,5 +1,5 @@
 import "./index.css";
-import {useEffect, useMemo, useState} from "react";
+import {useEffect, useState} from "react";
 import SearchForm from "../SearchForm";
 import MoviesList from "../MoviesList";
 import Preloader from "../../Preloader/Preloader";

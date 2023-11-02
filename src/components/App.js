@@ -41,14 +41,14 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const init = async () => {
+      getFilms().catch(err => console.log(err));
+
+      await checkToken();
+    };
+
     init().catch(err => console.log(err));
   }, []);
-
-  const init = async () => {
-    getFilms().catch(err => console.log(err));
-
-    await checkToken();
-  };
 
   const checkToken = async () => {
     const token = localStorage.getItem("token");

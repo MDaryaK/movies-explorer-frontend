@@ -1,4 +1,4 @@
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { object, string } from 'yup';
 
 import "./index.css";
@@ -30,8 +30,6 @@ export default function SignupPage({ onSignup }) {
 
   const [error, setError] = useState("");
   const [disabled, setDisabled] = useState(true);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (firstRender) {
