@@ -20,6 +20,10 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
 
   useEffect(() => {
     setFilms(data.data);
+
+    if (data.data) {
+      filter(searchValue, shortValue);
+    }
   }, [data]);
 
   useEffect(() => {
@@ -27,6 +31,19 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
 
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    const searchString = localStorage.getItem("search");
+
+    if (!searchString) {
+      return;
+    }
+
+    const { search, checked } = JSON.parse(searchString);
+
+    setSearchValue(search);
+    setShortValue(checked);
   }, []);
 
   const filter = (search, checked) => {
@@ -52,6 +69,11 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
         )
       });
     }
+
+    localStorage.setItem("search", JSON.stringify({
+      checked,
+      search
+    }));
 
     setPage(1);
     setFilms(newFilms);
