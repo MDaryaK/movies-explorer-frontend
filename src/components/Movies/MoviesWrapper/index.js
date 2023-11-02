@@ -3,6 +3,8 @@ import {useEffect, useMemo, useState} from "react";
 import SearchForm from "../SearchForm";
 import MoviesList from "../MoviesList";
 import Preloader from "../../Preloader/Preloader";
+import {LIMIT_1280, LIMIT_360, LIMIT_768} from "../../../consts/limits";
+import {DURATION} from "../../../consts/app";
 
 export default function MoviesWrapper({ type = "default", data, savedFilms, onFavorite }) {
 
@@ -31,7 +33,7 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
     let newFilms = [ ...data.data ];
 
     newFilms = checked ? (
-      newFilms.filter((item) => item.duration <= 40)
+      newFilms.filter((item) => item.duration <= DURATION)
     ) : newFilms;
 
     if (search) {
@@ -59,11 +61,11 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
     const width = document.getElementById("root").clientWidth;
 
     if (width > 1280) {
-      setLimit(12);
+      setLimit(LIMIT_1280);
     } else if (width > 768) {
-      setLimit(8);
+      setLimit(LIMIT_768);
     } else if (width > 320) {
-      setLimit(4);
+      setLimit(LIMIT_360);
     }
 
     setPage(1);
