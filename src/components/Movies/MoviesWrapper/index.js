@@ -51,6 +51,7 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
       });
     }
 
+    setPage(1);
     setFilms(newFilms);
   };
 
@@ -64,6 +65,8 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
     } else if (width > 320) {
       setLimit(4);
     }
+
+    setPage(1);
   };
 
   const handleShortChange = () => {
