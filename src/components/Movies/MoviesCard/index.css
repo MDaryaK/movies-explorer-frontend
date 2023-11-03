@@ -1,6 +1,8 @@
 .movies-card {
   width: 100%;
 
+  text-decoration: none;
+
   background: #FDFDFD;
   box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.08);
 
@@ -8,8 +10,30 @@
     padding: 14px;
 
     display: flex;
-    flex-direction: column;
-    gap: 9px;
+    justify-content: space-between;
+
+    .movies-card__head-info {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .movies-card__head-icon {
+      width: 30px;
+      height: 30px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 50%;
+
+      background: #F9F9F9;
+    }
+
+    .movies-card__head-icon-active {
+      background: #2BE080;
+    }
 
     .movies-card__head-name {
       margin: 0;

@@ -1,14 +1,17 @@
-import React, {useState} from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, {useContext, useState} from "react";
+import {Link, useLocation, useNavigate} from "react-router-dom";
 
-import user from "../../images/icons/user.svg"
+import UserIcon from "../../images/icons/user.svg"
 import burger from "../../images/icons/burger.svg"
 import close from "../../images/icons/close.svg"
 
 import "./index.css";
 import Logo from "../Logo";
+import {CurrentUserContext} from "../../contexts/CurrentUser";
 
-export default function Header({ type = "default" }) {
+export default function Header() {
+
+  const user = useContext(CurrentUserContext);
 
   const [burgerOpened, setBurgerOpened] = useState(false);
 
@@ -30,23 +33,23 @@ export default function Header({ type = "default" }) {
     <header className={`header ${isMainPath ? "header-main" : ""}`}>
       <div className="header__container">
         <Logo />
-        {type === "default" && (
+        {!user && (
           <div className="header__actions">
-            <a
+            <Link
               className="header__actions-link header__actions-link-signin"
-              href="/signup"
+              to="/signup"
             >
               Регистрация
-            </a>
-            <a
+            </Link>
+            <Link
               className="header__actions-link header__actions-link-signup"
-              href="/signin"
+              to="/signin"
             >
               Войти
-            </a>
+            </Link>
           </div>
         )}
-        {type === "profile" && (
+        {user && (
           <>
             <ul className="header__nav">
               <li
@@ -62,12 +65,12 @@ export default function Header({ type = "default" }) {
                 Сохраненные фильмы
               </li>
             </ul>
-            <a className="header-profile" href="/profile">
+            <Link className="header-profile" to="/profile">
               <span>Аккаунт</span>
               <span className="header-profile__img">
-              <img src={user} alt="аватар пользователя" />
-            </span>
-            </a>
+                <img src={UserIcon} alt="аватар пользователя" />
+              </span>
+            </Link>
             <div className="header__burger">
               <img
                 src={burger}
@@ -107,12 +110,12 @@ export default function Header({ type = "default" }) {
               Сохранённые фильмы
             </li>
           </ul>
-          <a className="header-profile" href="/profile">
+          <Link className="header-profile" to="/profile">
             <span>Аккаунт</span>
             <span className="header-profile__img">
-              <img src={user} alt="аватар пользователя" />
+              <img src={UserIcon} alt="аватар пользователя" />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

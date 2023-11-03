@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 export default function AuthorizedLayout({ children }) {
   return (
     <>
-      <Header type="profile" />
+      <Header />
       <main>{children}</main>
       <Footer />
     </>

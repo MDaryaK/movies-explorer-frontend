@@ -68,7 +68,15 @@
   text-align: center;
   text-decoration: none;
 
+  cursor: pointer;
+
+  transition: opacity .3s ease;
+
   color: #FF6838;
+
+  &:hover {
+    opacity: .7;
+  }
 
   @media screen and (max-width: 600px) {
     margin-top: 284px;
