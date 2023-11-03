@@ -115,16 +115,20 @@
       }
     }
 
-    .account__actions-error {
+    .account__actions-text {
       margin: 0;
 
-      color: #FF004C;
+      color: #A0A0A0;
 
       text-align: center;
       font-size: 11px;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
+    }
+
+    .account__actions-error {
+      color: #FF004C;
     }
 
     .account__actions-save {
