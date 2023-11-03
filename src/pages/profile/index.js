@@ -60,6 +60,9 @@ export default function ProfilePage({ onSave, onSignout }) {
   };
 
   const signOut = () => {
+    localStorage.removeItem("saved-search");
+    localStorage.removeItem("default-search");
+
     Token.remove();
     onSignout && onSignout();
   };
