@@ -68,7 +68,7 @@ export default function ProfilePage({ onSave, onSignout }) {
     <div className="container">
       <section className="account">
         <h1 className="account__title">
-          Привет, Виталий!
+          Привет, {user.name}!
         </h1>
         <form className="account-form">
           <div className="account-form__item">
