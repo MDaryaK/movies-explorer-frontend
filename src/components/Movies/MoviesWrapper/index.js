@@ -8,6 +8,8 @@ import {DURATION} from "../../../consts/app";
 
 export default function MoviesWrapper({ type = "default", data, savedFilms, onFavorite }) {
 
+  const SEARCH_TYPE = `${type}-search`;
+
   const [shortValue, setShortValue] = useState(false);
   const [searchValue, setSearchValue] = useState("");
 
@@ -20,10 +22,6 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
 
   useEffect(() => {
     setFilms(data.data);
-
-    if (data.data) {
-      filter(searchValue, shortValue);
-    }
   }, [data]);
 
   useEffect(() => {
@@ -34,17 +32,21 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
   }, []);
 
   useEffect(() => {
-    const searchString = localStorage.getItem("search");
+    const searchString = localStorage.getItem(SEARCH_TYPE);
 
-    if (!searchString) {
+    if (!searchString || !data.data) {
       return;
     }
 
+    console.log(data.data, searchString);
+
     const { search, checked } = JSON.parse(searchString);
+
+    filter(search, checked);
 
     setSearchValue(search);
     setShortValue(checked);
-  }, []);
+  }, [data]);
 
   const filter = (search, checked) => {
     let newFilms = [ ...data.data ];
@@ -70,7 +72,7 @@ export default function MoviesWrapper({ type = "default", data, savedFilms, onFa
       });
     }
 
-    localStorage.setItem("search", JSON.stringify({
+    localStorage.setItem(SEARCH_TYPE, JSON.stringify({
       checked,
       search
     }));
