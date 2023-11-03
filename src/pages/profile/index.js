@@ -38,7 +38,6 @@ export default function ProfilePage({ onSave, onSignout }) {
       return;
     }
 
-    setError("");
     setDisabled(
       formErrors.length !== 0
       || (user.name === form.name.value && user.email === form.email.value)
@@ -51,6 +50,7 @@ export default function ProfilePage({ onSave, onSignout }) {
     try {
       await axios.patch("/users/me", formValues);
       setIsEdit(false);
+      setError("Профиль сохранен");
     } catch (e) {
       console.log(e);
       setError(e.response.data.message);
@@ -105,10 +105,10 @@ export default function ProfilePage({ onSave, onSignout }) {
           {isEdit ? (
             <>
               {error && (
-                <p className="account__actions-error">{error}</p>
+                <p className="account__actions-text account__actions-error">{error}</p>
               )}
               {formErrors.length !== 0 && (
-                <p className="account__actions-error">{formErrors.join(" ")}</p>
+                <p className="account__actions-text account__actions-error">{formErrors.join(" ")}</p>
               )}
               <button
                 className="account__actions-save"
@@ -120,9 +120,15 @@ export default function ProfilePage({ onSave, onSignout }) {
             </>
           ) : (
             <>
+              {error && (
+                <p className="account__actions-text">{error}</p>
+              )}
               <div
                 className="account__actions-edit"
-                onClick={() => setIsEdit(true)}
+                onClick={() => {
+                  setError("");
+                  setIsEdit(true);
+                }}
               >
                 Редактировать
               </div>
